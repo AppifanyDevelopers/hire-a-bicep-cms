@@ -3,51 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Static Content</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Dashboard</title>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
 </head>
 <body>
 
   <a class="toggle-btn" id="btnToggleSidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar">
     <img src="/img/minimizer.svg" alt="Minimize" />
   </a>
+  <div class="overlay" id="sidebarOverlay"></div>
 
   <div class="layout">
-    <aside class="sidebar" id="sidebar">
-      <img src="/img/logo.svg" alt="Logo" class="logo" />
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+      <img src="/img/logo.svg" alt="Logo" class="logo mb-4" />
       <nav>
-        <a href="home.html"  class="active"><img src="/img/dashboard.svg" /><span>Dashboard</span></a>
-        <a href="user-management.html" ><img src="/img/user.svg" /><span>User Management</span></a>
+        <a href="home.html" class="active" ><img src="/img/dashboard.svg" /><span>Dashboard</span></a>
+        <a href="user-management.html"><img src="/img/user.svg" /><span>User Management</span></a>
         <a href="job.html"><img src="/img/job.svg" /><span>Job Management</span></a>
         <a href="category.html"><img src="/img/category.svg" /><span>Category Management</span></a>
         <a href="statistics.html"><img src="/img/statistics.svg" /><span>Statistics</span></a>
         <a href="message-support.html"><img src="/img/message.svg" /><span>Messages & Support</span></a>
         <a href="broadcast.html"><img src="/img/broadcast.svg" /><span>Broadcast Notification</span></a>
         <a  href="static-content.html" ><img src="/img/static-content.svg" /><span>Static Content</span></a>
-        <a href="faq.html" ><img src="/img/faq.svg" /><span>FAQ's</span></a>
+        <a href="faq.html"><img src="/img/faq.svg" /><span>FAQ's</span></a>
         <a href="setting.html"><img src="/img/setting.svg" /><span>Settings</span></a>
         <a href="login.html"><img src="/img/logout.svg" /><span>Logout</span></a>
       </nav>
     </aside>
 
-    <div class="main">
+    <!-- Main content -->
+    <div class="main" role="main">
       <header class="header">
+        <img class="sidebar-toggle" id="sidebarToggle" src="/img/sidebar-toggle.svg" alt="Toggle Sidebar" />
         <span>Dashboard</span>
       </header>
 
       <div class="main-content">
         <section class="content-card">
-          <h2>Dashboard</h2>
-         
+        
         </section>
       </div>
     </div>
   </div>
 
-<script src="/js/script.js"></script>
-<script src="/js/static-content.js"></script>
+  <script src="/js/script.js"></script>
 </body>
 </html>
