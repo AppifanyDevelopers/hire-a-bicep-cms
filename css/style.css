@@ -169,7 +169,38 @@ body {
   margin-top: 12px;
   cursor: pointer;
 }
-
+.title-small-semibold {
+  font-weight: 600;
+  font-size: 20px;
+  color: #1a2637;
+  line-height: 140%;
+}
+.body-large-regular {
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  line-height: 140%;
+}
+.text-body-large {
+  color: #27364b;
+  font-size: 16px;
+  font-weight: 500;
+}
+.title-small {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e2a3b;
+  line-height: 36px;
+}
+.text-body-exsmall {
+  color: #2c3a4d;
+  font-size: 14px;
+  font-weight: 400;
+}
+.text-body-small {
+  font-size: 14px;
+  font-weight: 500;
+}
 .cancel-btn {
   width: 160px;
   height: 56px;
@@ -287,7 +318,7 @@ hr.divider {
 
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   width: 18px;
@@ -424,4 +455,178 @@ hr.divider {
 
 .overlay.active {
   display: block;
+}
+
+////////////
+
+.search-container {
+  position: relative;
+  max-width: 300px;
+  margin-left: auto;
+}
+.search-input {
+  border: 1px solid #E2E8F0;
+  border-radius:16px;
+  padding:8px 16px;
+  width: 100%;
+}
+.search-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+}
+.category-table {
+  background: white;
+  border-radius:16px;
+  border:1px solid #D8DCE3;
+  padding:16px 24px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+thead th:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+thead th:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.table th {
+  border-bottom: none;
+  background-color: #EAEFF3;
+  color:#7E8897;
+  font-weight: 600;
+  padding: 1rem 0.75rem;
+}
+.table td {
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+}
+.btn-actions {
+  background: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+.btn-actions:hover {
+  color: #374151;
+}
+tbody tr td:first-child {
+  margin-top:16px;
+  border-top: none;
+}
+
+.btn-add-category {
+  background-color: #163651;
+  color: white;
+  border: none;
+  padding:10px 16px;
+  border-radius: 16px;
+  font-weight: 500;
+  width:160px;
+  height:44px;
+  font-size:16px;
+}
+.btn-add-category::hover {
+  background-color: #163651;
+}
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+
+
+/* Responsive for small screens only - do NOT change big screen design */
+@media (max-width: 768px) {
+  .category-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .search-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  #searchInput {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  .category-table {
+    overflow-x: auto !important;
+  }
+
+  .category-table table {
+    min-width: 600px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px !important;
+    padding: 0.5rem 0.75rem !important;
+    white-space: nowrap !important;
+  }
+
+  .btn-add-category {
+    width: 100% !important;
+    max-width: 200px !important;
+  }
+}
+.pending-btn {
+  width: 70px;
+  height: 20px;
+  border-radius: 16px;
+  padding: 2px 8px;
+  background-color: #fef8e7;
+  color: #b54708;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.category-btn {
+  padding: 2px 8px;
+  background-color: #e9d7fe;
+  width: 79px;
+  height: 22px;
+  border-radius: 16px;
+  color: #6941c6;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  border: 1px solid #e9d7fe;
+}
+.plus-two-btn {
+  background-color: #e4e7ec;
+  padding: 2px 8px;
+  width: 31px;
+  height: 22px;
+  border-radius: 16px;
+  color: #344054;
+}
+.complete-btn-div {
+  display: flex;
+  align-items: center;
+  background-color: #ecfdf3;
+  border-radius: 16px;
+  width: 109px;
+  height: 20px;
+  padding: 2px 8px;
+}
+.complete-btn {
+  color: #027A48;
+   margin-left: 6px; 
+   font-size: 12px; 
+   font-weight: 600;"
 }

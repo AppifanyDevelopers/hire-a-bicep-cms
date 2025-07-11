@@ -35,21 +35,470 @@
       </nav>
     </aside>
 
-    <!-- Main content -->
     <div class="main" role="main">
-      <header class="header">
-        <img class="sidebar-toggle" id="sidebarToggle" src="/img/sidebar-toggle.svg" alt="Toggle Sidebar" />
-        <span>Job Management</span>
+      <header class="header d-flex align-items-center justify-content-between px-3 py-2">
+        <img 
+          class="sidebar-toggle me-3" 
+          id="sidebarToggle" 
+          src="/img/sidebar-toggle.svg" 
+          alt="Toggle Sidebar"
+        />
+      
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <span class="fw-semibold">Job Management</span>
+        </div>
       </header>
-
+      
       <div class="main-content">
         <section class="content-card">
-        
+          <div class="category-header d-flex justify-content-between align-items-center mb-3">
+            <h4 class="my-0 title-small-semibold" style="padding-top: 2px;">Job List</h4>
+
+            <div class="search-container d-flex align-items-center" style="height: 40px; padding: 8px 16px; border: 1px solid #E2E8F0; border-radius: 16px;">
+              <input
+                type="text"
+                class="border-0"
+                placeholder="Search"
+                id="searchInput"
+                style="flex: 1; outline: none; margin-left: 16px;"
+              />
+              <img src="/img/search.svg" class="search-icon" alt="Search" />
+            </div>
+          </div>
+          <div class="category-table">
+            <table class="table mb-0">
+              <thead style=" margin-bottom: 16px;">
+                <tr class="text-body-small">
+                  <th>User Name</th>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Categories</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="categoryTableBody">
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                  <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                  
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="complete-btn-div">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.41602 1.28894C3.66102 1.28894 1.41602 3.53394 1.41602 6.28894C1.41602 9.04394 3.66102 11.2889 6.41602 11.2889C9.17102 11.2889 11.416 9.04394 11.416 6.28894C11.416 3.53394 9.17102 1.28894 6.41602 1.28894ZM8.80602 5.13894L5.97102 7.97394C5.90102 8.04394 5.80602 8.08394 5.70602 8.08394C5.60602 8.08394 5.51102 8.04394 5.44102 7.97394L4.02602 6.55894C3.88102 6.41394 3.88102 6.17394 4.02602 6.02894C4.17102 5.88394 4.41102 5.88394 4.55602 6.02894L5.70602 7.17894L8.27602 4.60894C8.42102 4.46394 8.66102 4.46394 8.80602 4.60894C8.95102 4.75394 8.95102 4.98894 8.80602 5.13894Z" fill="#027A48"/>
+                    </svg>
+                    <span class="complete-btn">
+                      COMPLETED
+                    </span>
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+                <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>  <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>  <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>  <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>  <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>  <tr  class="body-exsmall">
+                  <td>User Name</td>
+                  <td>Need help gardening..</td>
+                  <td>3/06/2025</td>
+                  <td>
+                    <div>
+                      <span class="category-btn">Category 1</span>
+                      <span class="plus-two-btn">+2</span>
+                    </div>
+                   </td>
+                  <td>NSW</td>
+                  <td>
+                    <div class="pending-btn">
+                    PENDING
+                  </div>
+                  </td>
+                   <td style="text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
       </div>
-    </div>
+    
+  
   </div>
 
   <script src="/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
