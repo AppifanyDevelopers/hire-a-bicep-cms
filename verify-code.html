@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hire A Bicep - Login</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-pane">
+            <div class="logo">
+                <img src="../assets/images/login-logo.png" alt="Hire A Bicep Logo" />
+
+            </div>
+            <div class="login-box">
+                <a href="login.html"
+                    style="margin-bottom: 22px; display: flex; align-items: center; gap: 8px; cursor: pointer; text-decoration: none; color: #eff1f3;">
+                    <img src="../assets/svg/back-arrow.svg" alt="Back to login" style="height: 16px;" />
+                    <span style="font-size: 14px; font-weight: 400;">Back to sign in</span>
+                </a>
+                <div style=" margin-bottom: 24px;">
+                    <h2 style="margin-bottom: 12px;">Verify Code</h2>
+                    <span class="logo-text" style="font-size: 15px; font-weight: 400; ">A verification code has been
+                        sent to your registered email. Enter the code below.</span>
+                </div>
+                <form id="loginForm">
+                    <div class="input-group" style="margin-bottom: 40px;">
+                        <input type="number" id="code" placeholder="Enter Code"
+                            oninput="this.value = this.value.slice(0, 6)" />
+                        <span class="error-text" id="codeError"></span>
+                        <div>
+                            <span class="logo-text" style="font-size: 15px; font-weight: 400; ">Didn’t get code?
+                                <span style="color: #f2c521; cursor: pointer;"
+                                    onclick=window.location.reload()>Resend</span>
+                                00:30</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn">Send Reset Link</button>
+                </form>
+
+            </div>
+        </div>
+        <div class="right-pane">
+            <img src="../assets/images/bicep-logo.png" alt="Bicep Arm Illustration" />
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const codeInput = document.getElementById('code');
+            const codeError = document.getElementById('codeError');
+
+            let isValid = true;
+
+            // Reset error state
+            codeInput.classList.remove('input-error');
+            codeError.textContent = '';
+
+            // Validate: must not be empty and should be 4-6 digits (common for OTP codes)
+            const codeValue = codeInput.value.trim();
+
+            if (!codeValue) {
+                codeError.textContent = 'Verification code is required.';
+                codeInput.classList.add('input-error');
+                isValid = false;
+            } else if (!/^\d{4,6}$/.test(codeValue)) {
+                codeError.textContent = 'Enter a valid verification code.';
+                codeInput.classList.add('input-error');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // ✅ Code is valid: reload or redirect
+                window.location.href = "new-password.html"  // You can replace this with a redirect or API call
+            }
+        });
+
+        // Clear error on focus
+        document.getElementById('code').addEventListener('focus', function () {
+            this.classList.remove('input-error');
+            document.getElementById('codeError').textContent = '';
+        });
+    </script>
+
+
+
+</body>
+
+</html>
