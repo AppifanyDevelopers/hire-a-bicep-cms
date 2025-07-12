@@ -457,17 +457,15 @@ hr.divider {
   display: block;
 }
 
-////////////
-
 .search-container {
   position: relative;
   max-width: 300px;
   margin-left: auto;
 }
 .search-input {
-  border: 1px solid #E2E8F0;
-  border-radius:16px;
-  padding:8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 8px 16px;
   width: 100%;
 }
 .search-icon {
@@ -479,12 +477,11 @@ hr.divider {
 }
 .category-table {
   background: white;
-  border-radius:16px;
-  border:1px solid #D8DCE3;
-  padding:16px 24px;
+  border-radius: 16px;
+  border: 1px solid #d8dce3;
+  padding: 16px 24px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
-
 
 thead th:first-child {
   border-top-left-radius: 12px;
@@ -498,8 +495,8 @@ thead th:last-child {
 
 .table th {
   border-bottom: none;
-  background-color: #EAEFF3;
-  color:#7E8897;
+  background-color: #eaeff3;
+  color: #7e8897;
   font-weight: 600;
   padding: 1rem 0.75rem;
 }
@@ -518,7 +515,7 @@ thead th:last-child {
   color: #374151;
 }
 tbody tr td:first-child {
-  margin-top:16px;
+  margin-top: 16px;
   border-top: none;
 }
 
@@ -526,12 +523,12 @@ tbody tr td:first-child {
   background-color: #163651;
   color: white;
   border: none;
-  padding:10px 16px;
+  padding: 10px 16px;
   border-radius: 16px;
   font-weight: 500;
-  width:160px;
-  height:44px;
-  font-size:16px;
+  width: 160px;
+  height: 44px;
+  font-size: 16px;
 }
 .btn-add-category::hover {
   background-color: #163651;
@@ -542,8 +539,6 @@ tbody tr td:first-child {
   align-items: center;
   margin-bottom: 1.5rem;
 }
-
-
 
 /* Responsive for small screens only - do NOT change big screen design */
 @media (max-width: 768px) {
@@ -625,8 +620,8 @@ tbody tr td:first-child {
   padding: 2px 8px;
 }
 .complete-btn {
-  color: #027A48;
-   margin-left: 6px; 
-   font-size: 12px; 
-   font-weight: 600;"
+  color: #027a48;
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 600;
 }

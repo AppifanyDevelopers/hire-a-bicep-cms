@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .status-badge {
+            background-color: #e8f5e8;
+            color: #2d5a2d;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #4caf50;
+            border-radius: 50%;
+        }
+
+        .posted-by {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .posted-by-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .images-section {
+            margin-bottom: 24px;
+        }
+
+        .images-container {
+            display: flex;
+            gap: 24px;
+        }
+
+        .image-placeholder {
+            width: 315px;
+            height: 171px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+
+        .details-grid {
+            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0px;
+            margin-bottom: 24px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .detail-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 400;
+        }
+
+        .description-section {
+            max-width: 814px;
+            margin-bottom: 24px;
+        }
+
+        .description-title {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .description-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .offers-section {
+            max-width: 395px;
+            margin-bottom: 24px;
+        }
+
+        .offers-title {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .offers-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .offers-count {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .view-button {
+            background-color: #ffa726;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .view-button:hover {
+            background-color: #ff9800;
+        }
+
+        .awarded-section {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+
+        .awarded-title {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .awarded-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .awarded-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .awarded-name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .container-wrapper {
+            position: relative;
+        }
+
+        /* hr */
+        .hr-inline {
+            width: 100%;
+            border: none;
+            border-top: 2px solid #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="toggle-btn" id="btnToggleSidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar">
+        <img src="img/minimizer.svg" alt="Minimize" />
+    </a>
+    <div class="overlay" id="sidebarOverlay"></div>
+
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
+            <img src="img/logo.svg" alt="Logo" class="logo mb-4" />
+            <nav>
+                <a href="home.html"><img src="img/dashboard.svg" /><span>Dashboard</span></a>
+                <a href="user-management.html"><img src="img/user.svg" /><span>User Management</span></a>
+                <a href="job.html" class="active"><img src="img/job.svg" /><span>Job Management</span></a>
+                <a href="category.html"><img src="img/category.svg" /><span>Category Management</span></a>
+                <a href="statistics.html"><img src="img/statistics.svg" /><span>Statistics</span></a>
+                <a href="message-support.html"><img src="img/message.svg" /><span>Messages & Support</span></a>
+                <a href="broadcast.html"><img src="img/broadcast.svg" /><span>Broadcast Notification</span></a>
+                <a href="static-content.html"><img src="img/static-content.svg" /><span>Static Content</span></a>
+                <a href="faq.html"><img src="img/faq.svg" /><span>FAQ's</span></a>
+                <a href="setting.html"><img src="img/setting.svg" /><span>Settings</span></a>
+                <a href="login.html"><img src="img/logout.svg" /><span>Logout</span></a>
+            </nav>
+        </aside>
+
+        <div class="main" role="main">
+            <header class="header d-flex align-items-center justify-content-between px-3 py-2">
+                <img class="sidebar-toggle me-3" id="sidebarToggle" src="img/sidebar-toggle.svg" alt="Toggle Sidebar" />
+
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <span class="fw-semibold">Job Management</span>
+                </div>
+            </header>
+
+            <div class="main-content">
+                <section class="content-card">
+
+                    <!-- job detail section -->
+                    <div class="container-wrapper">
+
+                        <div>
+                            <div class="category-header d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="my-0 title-small-semibold" style="padding-top: 2px; margin-right: 14px;">Job
+                                    Post -
+                                    Need Help Gardening
+                                </h4>
+                                <div class="complete-btn-div" style="margin-top: 4px;">
+                                    <img src=" assets/svg/completed-tick.svg" alt="tick">
+                                    <span class="complete-btn">
+                                        COMPLETED
+                                    </span>
+                                </div>
+
+                                <div class="search-container d-flex align-items-center"
+                                    style="height: 40px; padding: 8px 16px; ">
+                                    <img src="assets/svg/three-dot.svg" alt="three-dot">
+                                </div>
+                            </div>
+                            <hr
+                                style="border: none; border-top: 2px solid #ccc; margin-top: -4px; margin-bottom: 18px;">
+                        </div>
+
+
+
+                        <div style="max-width: 395px;">
+                            <div class="posted-by-label">Posted By:</div>
+                            <div class="posted-by">
+                                <div class="user-avatar">
+                                    <img src="assets/images/sarah.png" alt="Sarah Kelly Avatar">
+                                </div>
+                                <div class="user-name">Sarah Kelly</div>
+                            </div>
+
+                            <hr
+                                style="border: none; border-top: 2px solid #ccc; margin-top: -8px; margin-bottom: 24px;">
+                        </div>
+
+
+                        <div class="images-section">
+                            <div class="images-container">
+                                <div class="image-placeholder"><img src="assets/images/garden1.png" alt=""></div>
+                                <div class="image-placeholder"><img src="assets/images/garden1.png" alt=""></div>
+                            </div>
+                        </div>
+
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <div class="detail-label">Categories</div>
+                                <div class="detail-value">Outdoor, Gardening</div>
+                                <hr style="border: none; border-top: 2px solid #ccc; margin: 10px 14px 14px 0;">
+
+                            </div>
+
+                            <div class="detail-item">
+                                <div class="detail-label">Location</div>
+                                <div class="detail-value">Broadbeach, Gold Coast, AUS</div>
+                                <hr style="border: none; border-top: 2px solid #ccc; margin: 10px 14px 14px 0;">
+
+                            </div>
+
+                            <div class="detail-item">
+                                <div class="detail-label">Date & Time</div>
+                                <div class="detail-value">3/05/2025 - 12:00</div>
+                                <hr style="border: none; border-top: 2px solid #ccc; margin: 10px 14px 14px 0;">
+
+                            </div>
+
+                            <div class="detail-item">
+                                <div class="detail-label">Budget</div>
+                                <div class="detail-value">60/hr</div>
+                                <hr style="border: none; border-top: 2px solid #ccc; margin: 10px 14px 14px 0;">
+
+                            </div>
+
+                            <div class="detail-item">
+                                <div class="detail-label">Total Amount of Hours</div>
+                                <div class="detail-value">1 hour</div>
+                                <hr style="border: none; border-top: 2px solid #ccc; margin: 10px 14px 14px 0;">
+
+                            </div>
+
+                            <div class="detail-item">
+                                <div class="detail-label">Total Price</div>
+                                <div class="detail-value">$60</div>
+                                <hr style="border: none; border-top: 2px solid #ccc; margin: 10px 14px 14px 0;">
+
+                            </div>
+
+                        </div>
+
+                        <div class="description-section">
+                            <div class="description-title">Description</div>
+                            <div class="description-text">
+                                This is placeholder text only, intended for visual demonstration purposes only. The
+                                content here is not meant to convey any specific information but to illustrate how
+                                text will appear in the final design. Please note that this text will be replaced
+                                with the approved content at the final stage.
+                            </div>
+                            <div class="description-text">
+                                This is placeholder text only, intended for visual demonstration purposes only. This
+                                is placeholder text only, intended for visual demonstration purposes only.
+                            </div>
+                            <hr style="border: none; border-top: 2px solid #ccc; margin: 20px 0;">
+
+                        </div>
+
+
+                        <div class="offers-section">
+                            <div class="offers-title">Offers</div>
+                            <div class="offers-container">
+                                <div class="offers-count">43</div>
+                                <button class="view-button" style="margin-left: auto;">View</button>
+                            </div>
+                            <hr style="border: none; border-top: 2px solid #ccc; margin: 20px 0;">
+
+                        </div>
+
+                        <div style="max-width: 395px;">
+                            <div class="posted-by-label">Job awarded To:</div>
+
+                            <div class="posted-by">
+                                <div class="user-avatar">
+                                    <img src="assets/images/luke.png" alt="luke jackson avatar">
+                                </div>
+                                <div class="user-name">Luke Jackson </div>
+
+                            </div>
+                            <hr style="border: none; border-top: 2px solid #ccc; margin: 20px 0;">
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+        </div>
+
+        <script src="js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
