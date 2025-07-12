@@ -51,12 +51,12 @@ function renderFAQs(faqsToRender = faqs) {
           <div class="faq-actions" onclick="event.stopPropagation()">
             <button onclick="editFAQ(${
               faq.id
-            })"><img src="/img/edit.svg" /></button>
+            })"><img src="img/edit.svg" /></button>
             <button onclick="deleteFAQ(${
               faq.id
-            })"><img src="/img/delete.svg" /></button>
+            })"><img src="img/delete.svg" /></button>
             <button class="toggle-icon" onclick="toggleFAQ(${faq.id})">
-              <img src="/img/${isExpanded ? "arrow-up" : "arrow-down"}.svg" />
+              <img src="img/${isExpanded ? "arrow-up" : "arrow-down"}.svg" />
             </button>
           </div>
         </div>
@@ -74,9 +74,9 @@ function toggleFAQ(id) {
 
   item.classList.toggle("expanded");
   if (item.classList.contains("expanded")) {
-    icon.src = "/img/arrow-up.svg";
+    icon.src = "img/arrow-up.svg";
   } else {
-    icon.src = "/img/arrow-down.svg";
+    icon.src = "img/arrow-down.svg";
   }
 }
 
