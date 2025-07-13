@@ -647,3 +647,58 @@ padding: 6px 12px;
   font-weight: 600;
   border: 1px solid #2F5E87;
 }
+
+.bicep-btn,.user-btn{
+  width:67px;
+  height: 20px;
+  border-radius: 16px;
+  padding: 2px 8px;
+border:none;
+font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+.bicep-btn{
+  background-color:#F0F4FE;
+  color: #1342B7;
+}
+.user-btn {
+  background-color: #ECFDF3;
+  color: #027A48;
+
+}
+.actions-modal {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 16px 32px;
+  width: 188px;
+  height: auto;          
+  margin-top: 8px;  
+  right: 0;
+ 
+}
+.actions-modal .dropdown-item {
+  color: #27364B;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.actions-modal .dropdown-item:hover {
+  background-color: #EAEFF3;
+}
+.actions-modal .dropdown-item.text-danger {
+  color: #27364B; 
+}
+.actions-modal .modal-content {
+  display: flex;
+  flex-direction: column;
+}
