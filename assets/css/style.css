@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  background-color: #0d2c49;
+  color: #eff1f3;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+.left-pane {
+  flex: none;
+  width: 507px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #eff1f3;
+
+  margin-left: 170px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.logo img {
+  width: auto;
+  height: auto;
+  max-height: 178px;
+  max-width: 340px;
+  display: block;
+}
+
+.login-box {
+  width: 100%;
+}
+
+.login-box h2 {
+  margin-bottom: 24px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 45px;
+}
+
+.password-wrapper .toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.forgot-password a {
+  color: #eff1f3;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: none;
+  color: #eff1f3;
+  border: 1px solid #eff1f3;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #f9c22e;
+  color: #0d2c49;
+}
+
+.right-pane {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  /* padding: 20px; */
+}
+
+.right-pane img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .logo img {
+    max-height: 70px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+  }
+
+  .login-box input,
+  .login-btn {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  .password-wrapper .toggle-password img {
+    height: 18px;
+  }
+
+  .forgot-password a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left-pane {
+    width: 100%;
+    margin-left: 0;
+    padding: 40px 24px;
+    align-items: center;
+    margin-top: 215px;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .logo img {
+    width: auto;
+    height: auto;
+    max-height: 178px;
+    max-width: 220px !important;
+    display: block;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .right-pane {
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .right-pane img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .left-pane {
+    margin-left: 125px;
+    margin-right: 25px;
+  }
+
+  .right-pane img {
+    max-width: 270px;
+    /* width: 100%; */
+    height: auto;
+  }
+
+  .logo img {
+    width: auto;
+    height: auto;
+    max-height: 178px;
+    max-width: 270px;
+    display: block;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 965px) {
+  .left-pane {
+    width: 350px;
+    margin-left: 100px;
+  }
+}
+
+.input-error {
+  border: 2px solid red !important;
+}
+
+.error-text {
+  color: red;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* remove number spinner */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+}

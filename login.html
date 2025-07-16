@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hire A Bicep - Login</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-pane">
+            <div class="logo">
+                <img src="assets/images/login-logo.png" alt="Hire A Bicep Logo" />
+
+            </div>
+            <div class="login-box">
+                <h2>Log in</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="text" id="email" placeholder="Email" />
+                        <span class="error-text" id="emailError"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="password-wrapper">
+                            <input type="password" id="password" placeholder="Password" />
+                            <button type="button" class="toggle-password">
+                                <img src="assets/svg/eye-open.svg" alt="Toggle Password" style="height: 20px;" />
+                            </button>
+                        </div>
+                        <span class="error-text" id="passwordError"></span>
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="forgot-password.html" style="text-decoration: none; color: #eff1f3;">Forgot
+                            Password?</a>
+                    </div>
+                    <button type="submit" class="login-btn">Log In</button>
+                </form>
+
+            </div>
+        </div>
+        <div class="right-pane">
+            <img src="assets/images/bicep-logo.png" alt="Bicep Arm Illustration" />
+        </div>
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        const passwordField = document.getElementById('password');
+        const toggleBtn = document.querySelector('.toggle-password');
+        const toggleImg = toggleBtn.querySelector('img');
+
+        // Toggle password visibility and icon
+        toggleBtn.addEventListener('click', function () {
+            const isPasswordVisible = passwordField.getAttribute('type') === 'text';
+            passwordField.setAttribute('type', isPasswordVisible ? 'password' : 'text');
+            toggleImg.src = isPasswordVisible
+                ? 'assets/svg/eye-open.svg'
+                : 'assets/svg/eye-close.svg';
+            toggleImg.alt = isPasswordVisible ? 'Show Password' : 'Hide Password';
+        });
+
+        // Validation on form submit
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+
+            let isValid = true;
+
+            // Reset error styles and messages
+            email.classList.remove('input-error');
+            password.classList.remove('input-error');
+            emailError.textContent = '';
+            passwordError.textContent = '';
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim()) {
+                emailError.textContent = 'Email is required.';
+                email.classList.add('input-error');
+                isValid = false;
+            } else if (!emailPattern.test(email.value)) {
+                emailError.textContent = '* Invalid Email';
+                email.classList.add('input-error');
+                isValid = false;
+            }
+
+            // Password validation
+            if (!password.value.trim()) {
+                passwordError.textContent = 'Password is required.';
+                password.classList.add('input-error');
+                isValid = false;
+            }
+
+            if (isValid) {
+                this.submit();
+            }
+        });
+
+        // Clear email error on focus
+        document.getElementById('email').addEventListener('focus', function () {
+            this.classList.remove('input-error');
+            document.getElementById('emailError').textContent = '';
+        });
+
+        // Clear password error on focus
+        passwordField.addEventListener('focus', function () {
+            this.classList.remove('input-error');
+            document.getElementById('passwordError').textContent = '';
+        });
+    </script>
+
+
+</body>
+
+</html>
