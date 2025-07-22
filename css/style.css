@@ -255,20 +255,35 @@ hr.divider {
   .content-wrapper {
     flex-direction: column;
   }
+
   .toggle-btn {
     display: none !important;
   }
-  .sidebar {
-    left: -270px !important;
-    transition: left 0.3s ease !important;
-  }
-  .sidebar.show {
-    left: 0 !important;
-  }
+
   #sidebarToggle {
     display: inline-block !important;
     cursor: pointer;
+    z-index: 1100;
+    position: relative;
   }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -270px !important;
+    height: 100vh;
+    width: 270px;
+    background-color: #fff; 
+    z-index: 1000;
+    transition: left 0.3s ease !important;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* optional */
+  }
+
+  .sidebar.show {
+    left: 0 !important;
+  }
+
   .main {
     margin-left: 0 !important;
     width: 100% !important;
@@ -278,6 +293,7 @@ hr.divider {
     width: 100% !important;
   }
 }
+
 
 .faq-section,
 .add-questions-section {
@@ -447,17 +463,21 @@ hr.divider {
 
 /* Overlay for sidebar */
 .overlay {
-  display: none;
   position: fixed;
-  inset: 0;
-  z-index: 1040;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999;
+  display: none; 
 }
 
 .overlay.active {
   display: block;
 }
 
-////////////
+
 
 .search-container {
   position: relative;
