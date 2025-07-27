@@ -625,3 +625,24 @@ tbody tr td:first-child {
   font-size: 12px;
   font-weight: 600;
 }
+@media (max-width: 768px) {
+  .d-flex.flex-wrap .dropdown-filter {
+    width: 100% !important;
+  }
+}
+.bg-dark-red {
+  background-color: #163651;
+}
+.color-dark-red {
+  color: #163651;
+}
+.border-dark-red {
+  border-color: #163651;
+}
+.dropdown-toggle {
+  border: none;
+  padding: 4px;
+}
+.dropdown-toggle::after {
+  content: none;
+}
