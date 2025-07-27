@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>View User Details</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<style>
+  
+  .user-tag {
+    background-color: #CBC9D4;
+    color:#524B6B;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 10px;
+    padding: 6px  22px 8px 26px;
+  }
+  .report-tag {
+    font-size: 12px;
+    font-weight: bold;
+    color: #B42318;
+    background-color: #FEF3F2;
+    padding: 2px 8px;
+    border-radius: 16px;
+  }
+
+  .job-card {
+    width:100%;
+    max-width:363px;
+    border-radius: 16px;
+    padding: 21px;
+    border: 1px solid #E4E7EC;
+  }
+  .user-line {
+    border-top: 1px solid #E2E8F0;
+    margin: 10px 0;
+    opacity: 1;
+  }
+</style>
+<body>
+
+  <a class="toggle-btn" id="btnToggleSidebar" aria-label body-small="Toggle Sidebar" title="Toggle Sidebar">
+    <img src="/img/minimizer.svg" alt="Minimize" />
+  </a>
+  <div class="overlay" id="sidebarOverlay"></div>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label body-small="Sidebar navigation">
+      <img src="/img/logo.svg" alt="Logo" class="logo mb-4" />
+      <nav>
+        <a href="home.html" ><img src="/img/dashboard.svg" /><span>Dashboard</span></a>
+        <a href="user-management.html" class="active"><img src="/img/user.svg" /><span>User Management</span></a>
+        <a href="job.html"><img src="/img/job.svg" /><span>Job Management</span></a>
+        <a href="category.html"><img src="/img/category.svg" /><span>Category Management</span></a>
+        <a href="statistics.html"><img src="/img/statistics.svg" /><span>Statistics</span></a>
+        <a href="message-support.html"><img src="/img/message.svg" /><span>Messages & Support</span></a>
+        <a href="broadcast.html"><img src="/img/broadcast.svg" /><span>Broadcast Notification</span></a>
+        <a  href="static-content.html" ><img src="/img/static-content.svg" /><span>Static Content</span></a>
+        <a href="faq.html"><img src="/img/faq.svg" /><span>FAQ's</span></a>
+        <a href="setting.html"><img src="/img/setting.svg" /><span>Settings</span></a>
+        <a href="login.html"><img src="/img/logout.svg" /><span>Logout</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="main" role="main">
+      <header class="header">
+        <img class="sidebar-toggle" id="sidebarToggle" src="/img/sidebar-toggle.svg" alt="Toggle Sidebar" />
+        <span>User Management</span>
+      </header>
+
+      <div class="main-content">
+        <section class="content-card">
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                      <img src="/img/users.svg" class="rounded-circle" alt="Profile">
+                      <div>
+                        <h5 class="mb-0 subtitle-large-medium">User Name</h5>
+                    <small class="text-body-large" style="color:#64748B;"><img src="/img/email.svg" style="padding-right:8px;" alt="">user@gmail.com</small>
+                      </div>
+                      <span class="report-tag">2 REPORTS</span>
+                    </div>
+                  
+                    <style>
+                        .actions-modal {
+                          display: none;
+                          position: absolute;
+                          background: #fff;
+                          border: 1px solid #E4E7EC;
+                          z-index: 1000;
+                          padding: 16px 32px;
+                          border-radius: 4px;
+                        }
+                      </style>
+                      
+                      <div class="d-flex align-items-center gap-2 position-relative">
+                        <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                          <img src="/img/threedot.svg" alt="More actions" style="transform: rotate(90deg);" />
+                        </button>
+                      
+                        <div class="actions-modal">
+                          <div class="modal-content">
+                            <a class="dropdown-item" href="block-user.html">Block User</a>
+                            <button class="dropdown-item " >Delete User</button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <script>
+                        function toggleModal(event) {
+                          event.stopPropagation();
+                          const button = event.currentTarget;
+                          const wrapper = button.closest('.d-flex');
+                          const modal = wrapper.querySelector('.actions-modal');
+                      
+                          // Hide all other modals
+                          document.querySelectorAll('.actions-modal').forEach(m => {
+                            if (m !== modal) m.style.display = 'none';
+                          });
+                      
+                          // Toggle current modal
+                          modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+                        }
+                      
+                        document.addEventListener('click', function (e) {
+                          document.querySelectorAll('.actions-modal').forEach(modal => {
+                            const wrapper = modal.closest('.d-flex');
+                            const button = wrapper.querySelector('.btn-actions');
+                      
+                            if (!modal.contains(e.target) && !button.contains(e.target)) {
+                              modal.style.display = 'none';
+                            }
+                          });
+                        });
+                      </script>
+                      
+                  </div>
+              <hr style="border:1px solid #E2E8F0;opacity:1;">
+                  <!-- Details Grid -->
+                  <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">User Name</div>
+                      <div class="body-medium">Placeholder Name</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class=" body-small">Email Address</div>
+                      <div class="body-medium">contact@gmail.com</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">Location</div>
+                      <div class="body-medium">Queensland</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class=" body-small">Phone Number</div>
+                      <div class="body-medium">+61 412 345 672</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">Date of Birth</div>
+                      <div class="body-medium">12/12/1990</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class=" body-small">TFN Number</div>
+                      <div class="body-medium">000000000</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">ABN Number</div>
+                      <div class="body-medium">00000000000</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class="body-small">Categories</div>
+                      <div class="body-medium ">Moving, Heavy Lifting, Placeholder</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+            
+                    <div class="col-md-5">
+                      <div class=" body-small">Posted Jobs</div>
+                      <div class="body-medium">30</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class=" body-small">Pending Jobs</div>
+                      <div class="body-medium">1</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">Completed Jobs</div>
+                      <div class="body-medium">93</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                    <div class=" body-small">Reports</div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="body-medium">2</div>
+                        <button class="btn view-btn">View</button>
+                      </div>
+                      <hr class="user-line">
+                    </div>
+                   
+                  </div>
+            
+                  <!-- Jobs Posted Section -->
+                  <div class="mt-5">
+                    <h6 class="mb-3">Jobs Posted</h6>
+                    <div class="row" style="gap:24px;">
+                      <!-- Job Card 1 -->
+                      <div class="col-md-2 job-card">
+                          <div class="d-flex align-items-center justify-content-between mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                              <img src="img/user2.svg" class="rounded-circle"  alt="User">
+                              
+                            </div>
+                            <span style="font-size:10px;font-weight:400;color:#AAA6B9;">3 Offers</span>
+                          </div>
+                          <strong class="font-size:14px;font-weight:700;color:#150A33;">Need help moving a sofa and a bed</strong>
+                          <div class="font-size:12px;font-weight:400;color:#524B6B;">Bundall Gold Coast, AUS</div>
+                          <div class="d-flex gap-2 mb-2 mt-4">
+                            <span class="user-tag">Moving</span>
+                            <span class="user-tag">Lifting</span>
+                            <span class="user-tag">Heavy lifting</span>
+                          </div>
+                          <div class="d-flex justify-content-between text-muted small">
+                            <div style="font-size:10px;font-weight:400;color:#AAA6B9;">25 April 2025 - Afternoon</div>
+                            <div class="fw-bold" style="font-size: 14px;">$70/hr</div>
+                          </div>
+                        </div>
+                        <div class="col-md-2 job-card">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                              <div class="d-flex align-items-center gap-2">
+                                <img src="img/user2.svg" class="rounded-circle"  alt="User">
+                                
+                              </div>
+                              <span style="font-size:10px;font-weight:400;color:#AAA6B9;">3 Offers</span>
+                            </div>
+                            <strong class="font-size:14px;font-weight:700;color:#150A33;">Need help moving a sofa and a bed</strong>
+                            <div class="font-size:12px;font-weight:400;color:#524B6B;">Bundall Gold Coast, AUS</div>
+                            <div class="d-flex gap-2 mb-2 mt-4">
+                              <span class="user-tag">Moving</span>
+                              <span class="user-tag">Lifting</span>
+                              <span class="user-tag">Heavy lifting</span>
+                            </div>
+                            <div class="d-flex justify-content-between text-muted small">
+                              <div style="font-size:10px;font-weight:400;color:#AAA6B9;">25 April 2025 - Afternoon</div>
+                              <div class="fw-bold" style="font-size: 14px;">$70/hr</div>
+                            </div>
+                          </div>
+                    
+                    </div>
+                  </div>
+            
+               
+             
+            
+              <!-- Bootstrap JS -->
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

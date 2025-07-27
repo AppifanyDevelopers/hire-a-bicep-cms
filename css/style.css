@@ -169,6 +169,12 @@ body {
   margin-top: 12px;
   cursor: pointer;
 }
+.btn-edit,
+.save-btn:hover {
+  background-color: #163651;
+  color:white;
+  text-decoration: none;
+}
 .title-small-semibold {
   font-weight: 600;
   font-size: 20px;
@@ -185,6 +191,7 @@ body {
   color: #27364b;
   font-size: 16px;
   font-weight: 500;
+  line-height: 24px;
 }
 .title-small {
   font-size: 24px;
@@ -197,9 +204,27 @@ body {
   font-size: 14px;
   font-weight: 400;
 }
+.body-small{
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748B;
+  line-height: 22px;
+}
 .text-body-small {
   font-size: 14px;
   font-weight: 500;
+}
+.subtitle-large-medium{
+  font-size: 20px;
+  font-weight: 500;
+  color: #27364B;
+  line-height: 24px;
+}
+.body-medium{
+  font-size: 16px;
+  font-weight: 500;
+  color: #27364B;
+  line-height: 24px;
 }
 .cancel-btn {
   width: 160px;
@@ -214,7 +239,12 @@ body {
   margin-top: 12px;
   cursor: pointer;
 }
-
+.cancel-btn:hover {
+  border: 1px solid #2f5e87;
+  background-color: white;
+  color: #2f5e87;
+  text-decoration: none;
+}
 hr.divider {
   border-color: #e2e8f0;
   margin: 24px 0;
@@ -250,7 +280,24 @@ hr.divider {
   gap: 32px;
   height: 100%;
 }
-
+.view-btn{
+  display: flex;
+  justify-content: center;
+ align-items: center;
+  font-size: 12px;
+  font-weight:500;
+  padding:6px 12px;
+  width: 53px;
+  height: 24px;
+  border-radius: 16px;
+  background-color: #F6BC0E;
+  color: #334054;
+}
+.view-btn:hover {
+  background-color: #e0a800;
+  color: #334054;
+  text-decoration: none;
+}
 @media (max-width: 820px) {
   .content-wrapper {
     flex-direction: column;
@@ -661,13 +708,22 @@ padding: 6px 12px;
   font-weight: 600;
   border: none;
 }
+.accept-btn:hover {
+  background-color: #163651;
+  color: white;
+  text-decoration: none;
+}
 .reject-btn {
   color: #334054;
   font-size: 14px;
   font-weight: 600;
   border: 1px solid #2F5E87;
 }
-
+.reject-btn:hover {
+  color: #334054;
+  text-decoration: none;
+  border: 1px solid #2F5E87;
+}
 .bicep-btn,.user-btn{
   width:67px;
   height: 20px;
@@ -722,3 +778,37 @@ font-size: 12px;
   display: flex;
   flex-direction: column;
 }
+//user-management
+
+.user-tag {
+  background-color: #CBC9D4;
+  color:#524B6B;
+  justify-content: center;
+  align-items:center;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 10px;
+  padding: 6px  22px 8px 26px;
+}
+.report-tag {
+  font-size: 12px;
+  font-weight: bold;
+  color: #B42318;
+  background-color: #FEF3F2;
+  padding: 2px 8px;
+  border-radius: 16px;
+}
+
+.job-card {
+  width:100%;
+  max-width:363px;
+  border-radius: 16px;
+  padding: 21px;
+  border: 1px solid #E4E7EC;
+}
+.user-line {
+  border-top: 1px solid #E2E8F0;
+  margin: 10px 0;
+  opacity: 1;
+}
+

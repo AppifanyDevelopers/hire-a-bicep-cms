@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>View User Details</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+.report-pending-tag {
+  font-size: 12px;
+  font-weight: bold;
+  color: #1342B7;
+  background-color: #F0F4FE;
+  padding: 2px 8px;
+  border-radius: 16px;
+}
+  </style>
+</head>
+<body>
+
+  <a class="toggle-btn" id="btnToggleSidebar" aria-label body-small="Toggle Sidebar" title="Toggle Sidebar">
+    <img src="/img/minimizer.svg" alt="Minimize" />
+  </a>
+  <div class="overlay" id="sidebarOverlay"></div>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label body-small="Sidebar navigation">
+      <img src="/img/logo.svg" alt="Logo" class="logo mb-4" />
+      <nav>
+        <a href="home.html" ><img src="/img/dashboard.svg" /><span>Dashboard</span></a>
+        <a href="user-management.html" class="active"><img src="/img/user.svg" /><span>User Management</span></a>
+        <a href="job.html"><img src="/img/job.svg" /><span>Job Management</span></a>
+        <a href="category.html"><img src="/img/category.svg" /><span>Category Management</span></a>
+        <a href="statistics.html"><img src="/img/statistics.svg" /><span>Statistics</span></a>
+        <a href="message-support.html"><img src="/img/message.svg" /><span>Messages & Support</span></a>
+        <a href="broadcast.html"><img src="/img/broadcast.svg" /><span>Broadcast Notification</span></a>
+        <a  href="static-content.html" ><img src="/img/static-content.svg" /><span>Static Content</span></a>
+        <a href="faq.html"><img src="/img/faq.svg" /><span>FAQ's</span></a>
+        <a href="setting.html"><img src="/img/setting.svg" /><span>Settings</span></a>
+        <a href="login.html"><img src="/img/logout.svg" /><span>Logout</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <div class="main" role="main">
+      <header class="header">
+        <img class="sidebar-toggle" id="sidebarToggle" src="/img/sidebar-toggle.svg" alt="Toggle Sidebar" />
+        <span>User Management</span>
+      </header>
+
+      <div class="main-content">
+        <section class="content-card">
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="d-flex align-items-center gap-3">
+                      <img src="/img/users.svg" class="rounded-circle" alt="Profile">
+                      <div>
+                        <h5 class="mb-0 subtitle-large-medium">User Name</h5>
+                    <small class="text-body-large" style="color:#64748B;"><img src="/img/email.svg" style="padding-right:8px;" alt="">user@gmail.com</small>
+                      </div>
+                      <span class="report-pending-tag">PENDING APPROVAL</span>
+                    </div>
+                  
+                  
+                      <div class="d-flex align-items-center gap-2 position-relative">
+                        <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                          <img src="/img/threedot.svg" alt="More actions" style="transform: rotate(90deg);" />
+                        </button>
+                      </div>
+                  </div>
+              <hr style="border:1px solid #E2E8F0;opacity:1;">
+                  <!-- Details Grid -->
+                  <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">User Name</div>
+                      <div class="body-medium">Placeholder Name</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class=" body-small">Email Address</div>
+                      <div class="body-medium">contact@gmail.com</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">Location</div>
+                      <div class="body-medium">Queensland</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class=" body-small">Phone Number</div>
+                      <div class="body-medium">+61 412 345 672</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">Date of Birth</div>
+                      <div class="body-medium">12/12/1990</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class=" body-small">TFN Number</div>
+                      <div class="body-medium">000000000</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                    <div class="row g-4 mb-4">
+                    <div class="col-md-5">
+                      <div class=" body-small">ABN Number</div>
+                      <div class="body-medium">00000000000</div>
+                      <hr class="user-line">
+                    </div>
+                    <div class="col-md-5">
+                      <div class="body-small">Categories</div>
+                      <div class="body-medium ">Moving, Heavy Lifting, Placeholder</div>
+                      <hr class="user-line">
+                    </div>
+                    </div>
+                  
+               
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
