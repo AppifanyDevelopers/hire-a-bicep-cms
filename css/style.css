@@ -812,3 +812,365 @@ font-size: 12px;
   opacity: 1;
 }
 
+/* dashb0ard css */
+.dashboard-content-card {
+  min-width: 320px;
+  overflow-x: auto;
+}
+
+/* Dashboard specific styles */
+.stats-grid {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+  height: 100%;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2C3A4D;
+  margin: 0;
+}
+
+.stat-label {
+  color: #7f8c8d;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.stat-change {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 67px;
+  height: 20px;
+  width: 100%;
+}
+
+.stat-change.positive {
+  background-color: #ECFDF3;
+  color: #027A48;
+}
+
+.stat-change.negative {
+  background-color: #FEF3F2;
+  color: #B42318;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+  border: 1px solid #e9ecef;
+  width: 100%;
+ 
+  overflow: hidden;
+
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+
+.performance-chart-wrapper {
+  width: 100%;
+  height: 280px;
+  position: relative;
+}
+
+.dispute-chart-wrapper {
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.chart-period {
+  background: #e9ecef;
+  color: #6c757d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.dashboard-content-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: stretch;
+}
+
+.pending-approvals {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+}
+
+.pending-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.approval-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.approval-table th {
+  background: #f8f9fa;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #e9ecef;
+  font-size: 0.875rem;
+}
+
+.approval-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+  color: #495057;
+  font-size: 0.875rem;
+}
+
+.approval-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn-approve {
+  background: #27ae60;
+  color: white;
+}
+
+.btn-reject {
+  background: #e74c3c;
+  color: white;
+}
+
+.gauge-filter {
+  background: #EFF1F3;
+  border: 1px solid #E7EAE9;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #2c3e50;
+  font-size: 0.8rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url('/img/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+  padding-right: 30px;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 38px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 5px;
+}
+
+.legend-resolved { background-color: #31B057; }
+.legend-pending { background-color: #F5F9FD; }
+.legend-completed { background-color: #388DE1; }
+.legend-posted { background-color: #F6BC0E; }
+.legend-active { background-color: #31B057; }
+
+.performance-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid #e9ecef;
+
+}
+
+.section-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.dashboard-search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dashboard-search-input {
+  padding: 15px 45px 15px 16px;
+  border: 1px solid #E7EAE9;
+  border-radius: 12px;
+  height: 50px;
+  width: 250px;
+  box-sizing: border-box;
+}
+
+.dashboard-search-icon {
+  left: auto;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7f8c8d;
+  font-size: 16px;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.filter-select {
+  padding: 8px 32px 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #EFF1F3;
+  color: #2c3e50;
+  min-width: 120px;
+  appearance: none;
+  background-image: url('/img/arrow-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+  cursor: pointer;
+}
+
+.notification-btn {
+  background: none;
+  border: 1px solid #E7EAE9;
+  padding: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .approval-table {
+    font-size: 0.8rem;
+  }
+  
+  .approval-table th,
+  .approval-table td {
+    padding: 8px;
+  }
+  
+  .chart-wrapper {
+    height: 250px;
+  }
+  
+  .dispute-chart-wrapper {
+    height: 180px;
+  }
+  
+  .performance-chart-wrapper {
+    height: 220px;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-container,
+  .pending-approvals,
+  .performance-section {
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 8px;
+  }
+  
+  .dashboard-content-card {
+    padding: 15px 10px;
+  }
+  
+  .chart-wrapper {
+    height: 200px;
+  }
+  
+  .dispute-chart-wrapper {
+    height: 160px;
+  }
+  
+  .performance-chart-wrapper {
+    height: 180px;
+  }
+  
+  .dashboard-search-input {
+    padding: 12px 40px 12px 12px;
+  }
+  
+  .dashboard-search-icon {
+    right: 12px;
+  }
+}
