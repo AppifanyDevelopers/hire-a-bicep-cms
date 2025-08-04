@@ -54,7 +54,8 @@ const revenueChart = new Chart(revenueCtx, {
         label: "Revenue",
         data: [15, 25, 18, 32, 28, 38, 22, 42, 35, 48, 40, 52],
         borderColor: "#F6BC0E",
-        backgroundColor: "rgba(246, 188, 14, 0.1)",
+
+        backgroundColor: "#fffcf5",
         tension: 0.4,
         fill: true,
         pointBackgroundColor: "#F6BC0E",
@@ -79,7 +80,7 @@ const revenueChart = new Chart(revenueCtx, {
         titleColor: "#2c3e50",
         bodyColor: "#2c3e50",
         borderColor: "#e9ecef",
-        borderWidth: 1,
+        borderWidth: 4,
         cornerRadius: 8,
         displayColors: false,
         callbacks: {
