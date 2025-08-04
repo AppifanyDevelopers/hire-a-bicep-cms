@@ -214,10 +214,11 @@ const disputeChart = new Chart(disputeCtx, {
     },
   ],
 });
-// Performance Chart
+
 const performanceCtx = document
   .querySelector(".performanceChart")
   .getContext("2d");
+
 const performanceChart = new Chart(performanceCtx, {
   type: "line",
   data: {
@@ -238,7 +239,7 @@ const performanceChart = new Chart(performanceCtx, {
     datasets: [
       {
         label: "Completed Jobs",
-        data: [20, 25, 30, 28, 35, 42, 38, 45, 40, 48, 52, 55],
+        data: [300, 350, 250, 320, 280, 140, 260, 310, 290, 370, 330, 200],
         borderColor: "#388DE1",
         backgroundColor: "transparent",
         tension: 0.4,
@@ -249,7 +250,7 @@ const performanceChart = new Chart(performanceCtx, {
       },
       {
         label: "Posted Jobs",
-        data: [15, 22, 28, 25, 32, 38, 35, 42, 38, 45, 48, 52],
+        data: [200, 250, 180, 230, 210, 270, 180, 290, 360, 280, 250, 220],
         borderColor: "#F6BC0E",
         backgroundColor: "transparent",
         tension: 0.4,
@@ -260,7 +261,7 @@ const performanceChart = new Chart(performanceCtx, {
       },
       {
         label: "Active Jobs",
-        data: [12, 18, 25, 22, 28, 35, 32, 38, 35, 42, 45, 48],
+        data: [250, 300, 220, 270, 230, 290, 310, 350, 300, 320, 280, 260],
         borderColor: "#31B057",
         backgroundColor: "transparent",
         tension: 0.4,
@@ -311,18 +312,21 @@ const performanceChart = new Chart(performanceCtx, {
         },
       },
       y: {
+        min: 0,
+        max: 400,
+        ticks: {
+          stepSize: 100,
+          color: "#95a5a6",
+          font: {
+            size: 11,
+          },
+        },
         grid: {
           color: "#ecf0f1",
           drawBorder: false,
         },
         border: {
           display: false,
-        },
-        ticks: {
-          color: "#95a5a6",
-          font: {
-            size: 11,
-          },
         },
       },
     },
