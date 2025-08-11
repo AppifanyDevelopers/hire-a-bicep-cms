@@ -62,14 +62,41 @@
           </div>
           
           <!-- Filters Row -->
-          <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; justify-content: end; align-items: center;">
-            <select class="filter-select">
-              <option>Date</option>
-              <option>Today</option>
-              <option>This Week</option>
-              <option>This Month</option>
-              <option>This Year</option>
-            </select>
+          <div style="display: flex; gap: 15px; margin-top: 20px; margin-bottom: 20px;flex-wrap: wrap; justify-content: end; align-items: center;">
+            <div class="position-relative">
+            <button class="filter-select"  onclick="toggleCalendarWidget()">
+              Date
+            </button>
+            <div class="calendar-container" style="position: absolute;">
+              <div class="date-picker-widget" id="calendarWidget">
+                  <div class="calendar-navigation-header">
+                      <div class="month-year-display" id="monthYearLabel">February 2019</div>
+                      <div class="calendar-navigation-controls">
+                          <button class="month-nav-button" onclick="showPreviousMonth()">
+                              <img src="/img/calendar-right.svg" alt="">
+                          </button>
+                          <button class="month-nav-button" onclick="showNextMonth()">
+                              <img src="/img/calendar-left.svg" alt="">
+                          </button>
+                      </div>
+                  </div>
+                  <div class="calendar-main-grid">
+                      <div class="day-of-week-labels">
+                          <div class="calendar-day-label">S</div>
+                          <div class="calendar-day-label">M</div>
+                          <div class="calendar-day-label">T</div>
+                          <div class="calendar-day-label">W</div>
+                          <div class="calendar-day-label">T</div>
+                          <div class="calendar-day-label">F</div>
+                          <div class="calendar-day-label">S</div>
+                      </div>
+                      <div class="days-panel" id="daysGrid"></div>
+                  </div>
+                  
+                  <button class="apply-selection-action" onclick="confirmDateSelection()">Apply</button>
+              </div>
+           
+          </div>
             <select class="filter-select">
               <option>Location</option>
               <option>New York</option>
@@ -242,6 +269,7 @@
         </div>     
 
   <script src="/js/script.js"></script>
+  <script src="/js/calendar.js"></script>
   <script src="/js/dashboard.js"></script>
 </body>
 </div>
