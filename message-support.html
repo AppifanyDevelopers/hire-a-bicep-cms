@@ -1,55 +1,1696 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Message and Support</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
-</head>
-<body>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href=".assets/css/message.css" />
 
+  <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet" />
+  <style>
+    .message-support-container {
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid var(--Neutral-20, #f6f8fc);
+    }
+
+    .inbox-table-header {
+      padding: 24px 27.17px 17px 27.17px;
+      gap: 9px;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 0.4px solid var(--Neutral-20, #d8dce3);
+    }
+
+    .title-small-medium {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 20px;
+      line-height: 140%;
+      letter-spacing: 0px;
+    }
+
+    .filter-select {
+      max-width: 92px;
+      width: 100%;
+      height: 28px;
+      border: none;
+      color: var(--Neutral-60, #515c6d);
+      padding: 0px;
+      appearance: none;
+      background: url(assets/svg/filter-icon.svg);
+      background-repeat: no-repeat;
+      background-size: 18px 16px;
+      padding: 4px 18px 4px 8px;
+      background-position: right center;
+      outline: 0;
+      cursor: pointer;
+    }
+
+    .body-medium-regular {
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0px;
+    }
+
+    .inbox-filter-container {
+      display: flex;
+      gap: 9px;
+    }
+
+    .inbox-filters {
+      background: #eceeef;
+      border-radius: 16px;
+      gap: 6px;
+      padding: 6px 12px;
+      color: #334054;
+      cursor: pointer;
+    }
+
+    .inbox-filters.selected {
+      background: #163651;
+      color: var(--Neutral-10, #ffffff);
+    }
+
+    .message-and-support-table-container {
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .message-and-support-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .message-and-support-table th {
+      padding: 0px !important;
+    }
+
+    .message-and-support-table td {
+      padding: 16px 0px;
+      border-bottom: 0.4px solid var(--Neutral-20, #d8dce3);
+      text-align: center;
+    }
+
+    .message-and-support-table tr td:first-child {
+      padding-left: 24px;
+    }
+
+    .inbox-td-name {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .body-small {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0px;
+    }
+
+    .avatar-image {
+      border: 0.75px solid var(--Neutral-90, rgba(39, 54, 75, 0.08));
+      width: 40px;
+      height: 40px;
+      border-radius: 200px;
+      border-width: 0.75px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+    }
+
+    .avatar-image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .body-medium-medium {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0px;
+    }
+
+    .inbox-badge {
+      max-width: max-content;
+      opacity: 1;
+      border-radius: 16px;
+      padding-top: 2px;
+      padding-right: 8px;
+      padding-bottom: 2px;
+      padding-left: 8px;
+      border-width: 1px;
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .inbox-badge.blue {
+      border: 1px solid #b2ddff;
+      background: #eff8ff;
+      color: #175cd3;
+    }
+
+    .inbox-badge.brand {
+      color: #6941c6;
+      border: 1px solid #e9d7fe;
+      background: #f9f5ff;
+    }
+
+    .inbox-badge.warning {
+      background: #fef8e7;
+      color: #b54708;
+    }
+
+    .inbox-badge.success {
+      color: #027a48;
+      background: #ecfdf3;
+    }
+
+    .inbox-badge-text {
+      font-family: Inter;
+      font-weight: 600;
+      font-style: Semi Bold;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0px;
+      text-transform: uppercase;
+    }
+
+    .text-xs-medium {
+      font-family: Inter;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0px;
+      text-align: center;
+    }
+
+    .message-and-support-table thead tr th:first-child {
+      min-width: 200px;
+    }
+
+    .message-and-support-table thead tr th:nth-child(2) {
+      min-width: 121px;
+    }
+
+    .message-and-support-table thead tr th:nth-child(3) {
+      min-width: 118px;
+    }
+
+    .message-and-support-table thead tr th:last-child {
+      min-width: 60px;
+    }
+
+    .body-large-medium {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: 0px;
+    }
+
+    .inbox-button {
+      background: #163651;
+      max-width: 169px;
+      width: 100%;
+      height: 54px;
+      opacity: 1;
+      border-radius: 16px;
+      gap: 8px;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inbox-button:hover {
+      background: #10263a;
+    }
+
+    .body-large-semibold {
+      font-family: Inter;
+      font-weight: 600;
+      font-style: Semi Bold;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: 0px;
+    }
+
+    .inbox-details {
+      gap: 20px;
+      overflow-y: auto;
+      scrollbar-width: none;
+      flex-grow: 1;
+      height: 0px;
+    }
+
+    .custom-tabs {
+      background: #edeff0;
+      border-radius: 12px;
+      padding: 4px;
+      display: flex;
+      position: relative;
+      margin-bottom: 32px;
+      max-width: 382px;
+      width: 100%;
+      align-self: center;
+    }
+
+    .tab-button {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Bold;
+      font-size: 12px;
+      line-height: 170%;
+      letter-spacing: 0.3px;
+      vertical-align: middle;
+      color: #6b7280;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      color: white;
+      font-weight: 700;
+    }
+
+    .tab-button:hover:not(.active) {
+      color: #5a5f6c;
+    }
+
+    .tab-slider {
+      position: absolute;
+      background: #163652;
+      border-radius: 8px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      top: 4px;
+      bottom: 4px;
+      box-shadow: 1px 2px 12px 0px #11182708;
+    }
+
+    .custom-nav-pills {
+      background: transparent;
+      display: flex;
+      width: 100%;
+      border: none;
+    }
+
+    .custom-nav-pills .nav-item {
+      flex: 1;
+    }
+
+    .custom-nav-pills .nav-link {
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Bold;
+      font-size: 12px;
+      line-height: 170%;
+      letter-spacing: 0.3px;
+      vertical-align: middle;
+      color: #6b7280;
+      padding: 6px 8px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .custom-nav-pills .nav-link:hover:not(.active) {
+      color: #5a5f6c;
+      background: transparent;
+    }
+
+    .custom-nav-pills .nav-link.active {
+      background: transparent !important;
+      color: white !important;
+      font-weight: 700;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade.show {
+      animation: fadeInUp 0.4s ease;
+    }
+
+    .inbox-report-content {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      overflow-y: auto;
+      scrollbar-width: none;
+      height: 0px;
+      flex-grow: 1;
+    }
+
+    .reported-user-details-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      background: #ffffff;
+      box-shadow: 0px 4px 62px 0px #99abc62e;
+      border-radius: 16px;
+      padding: 16.5px 22px;
+      align-items: center;
+    }
+
+    .reported-user-details-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .reported-user-details {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .reported-user-details-header {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0%;
+    }
+
+    .reported-user-details-like {
+      font-family: Inter;
+      font-weight: 600;
+      font-style: Semi Bold;
+      font-size: 12px;
+      line-height: 140%;
+      letter-spacing: 0%;
+    }
+
+    .start-chat-text {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 12px;
+      line-height: 22px;
+      letter-spacing: 0px;
+      white-space: nowrap;
+    }
+
+    .report-btns-container {
+      padding: 0px 8px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .report-warning {
+      border: 1.5px solid var(--Error-50, #fe4f4f);
+      background: var(--Error-10, #ffeded);
+      width: 100%;
+      opacity: 1;
+      gap: 16px;
+      border-radius: 16px;
+      border-width: 1.5px;
+      padding: 16px;
+      display: flex;
+      align-items: start;
+    }
+
+    .body-large {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0px;
+    }
+
+    .body-exsmall {
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0px;
+    }
+
+    .custom-tab-content {
+      display: flex;
+    }
+
+    .custom-tab-content .tab-pane.active {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .job-details-header {
+      font-family: Inter;
+      font-weight: 600;
+      font-style: Semi Bold;
+      font-size: 22px;
+      line-height: 140%;
+      letter-spacing: 0%;
+    }
+
+    .job-badge {
+      max-width: 80.88656616210938px;
+      width: 100%;
+      border-radius: 8px;
+      background: rgba(203, 201, 212, 0.2);
+      padding: 6px 0px 7px 0px;
+      color: #524b6b;
+      font-family: DM Sans;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 10px;
+      line-height: 100%;
+      letter-spacing: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .job-detail-time {
+      align-items: center;
+      display: flex;
+      gap: 12px;
+    }
+
+    .job-detail-time p {
+      color: #524b6b;
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 12px;
+      line-height: 100%;
+      letter-spacing: 0%;
+    }
+
+    .job-detail-text-1 {
+      color: #524b6b;
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      line-height: 100%;
+      letter-spacing: 0px;
+    }
+
+    .job-detail-text-2 {
+      font-family: DM Sans;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 24px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #000000;
+    }
+
+    .job-detail-text-3 {
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #163651;
+    }
+
+    .job-detail-text-4 {
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 12px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #645e7c;
+    }
+
+    .job-detail-text-5 {
+      font-family: Inter;
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #423d56;
+    }
+
+    .job-detail-image-container {
+      position: relative;
+      max-width: 430px;
+      width: 100%;
+      height: 234px;
+      opacity: 1;
+      border-radius: 16px;
+    }
+
+    .job-detail-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      display: none;
+    }
+
+    .job-detail-image.active {
+      display: block;
+    }
+
+    .jobs-dots-container {
+      position: absolute;
+      bottom: 19px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+    }
+
+    .job-dots {
+      width: 8px;
+      height: 8px;
+      background: var(--Neutral-40, #939ba6);
+      border-radius: 50%;
+      opacity: 1;
+    }
+
+    .job-dots.active {
+      background: var(--Neutral-10, #f3f4f6);
+    }
+
+    .chat-text-1 {
+      color: rgba(33, 34, 33, 0.6);
+
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0px;
+      text-align: center;
+    }
+
+    .chat-text-2 {
+      color: #060608;
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 14px;
+      line-height: 100%;
+      letter-spacing: 0px;
+    }
+
+    .received-message-1 {
+      padding-left: 35px;
+    }
+
+    .received-message {
+      max-width: 326.0063781738281px;
+      opacity: 1;
+      gap: 36px;
+      padding-top: 12px;
+      padding-right: 18px;
+      padding-bottom: 12px;
+      padding-left: 18px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 8px;
+      background-color: #f3f5f6;
+    }
+
+    .received-message-2 {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .chat-text-3 {
+      color: rgba(33, 34, 33, 0.6);
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 9px;
+      line-height: 100%;
+      letter-spacing: 0px;
+    }
+
+    .chat-profile-img {
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .received-message-3 {
+      align-self: flex-end;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .received-message-4 {
+      max-width: 326.0063781738281px;
+      opacity: 1;
+      gap: 36px;
+      padding-top: 12px;
+      padding-right: 18px;
+      padding-bottom: 12px;
+      padding-left: 18px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 20px;
+      background: rgba(47, 94, 135, 1);
+    }
+
+    .chat-textarea {
+      border: 1px solid #e8ebee;
+      background: #ffffff;
+      width: 100%;
+      height: 88.5px;
+      opacity: 1;
+      border-radius: 16px;
+      border-width: 1px;
+      padding: 16px;
+      color: var(--Neutral-70, #64748b);
+      font-family: Inter;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0px;
+    }
+
+    .chat-textarea::placeholder {
+      color: var(--Neutral-70, #64748b);
+    }
+
+    .send-image {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 16px;
+      right: 13px;
+    }
+
+    .image-upload-image {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 16px;
+      right: 42px;
+    }
+  </style>
+</head>
+
+<body>
   <a class="toggle-btn" id="btnToggleSidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar">
-    <img src="/img/minimizer.svg" alt="Minimize" />
+    <img src="img/minimizer.svg" alt="Minimize" />
   </a>
   <div class="overlay" id="sidebarOverlay"></div>
 
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
-      <img src="/img/logo.svg" alt="Logo" class="logo mb-4" />
+      <img src="img/logo.svg" alt="Logo" class="logo mb-4" />
       <nav>
-        <a href="home.html" ><img src="/img/dashboard.svg" /><span>Dashboard</span></a>
-        <a href="user-management.html"><img src="/img/user.svg" /><span>User Management</span></a>
-        <a href="job.html"><img src="/img/job.svg" /><span>Job Management</span></a>
-        <a href="category.html"><img src="/img/category.svg" /><span>Category Management</span></a>
-        <a href="statistics.html"><img src="/img/statistics.svg" /><span>Statistics</span></a>
-        <a href="message-support.html"  class="active"><img src="/img/message.svg" /><span>Messages & Support</span></a>
-        <a href="broadcast.html"><img src="/img/broadcast.svg" /><span>Broadcast Notification</span></a>
-        <a  href="static-content.html" ><img src="/img/static-content.svg" /><span>Static Content</span></a>
-        <a href="faq.html"><img src="/img/faq.svg" /><span>FAQ's</span></a>
-        <a href="setting.html"><img src="/img/setting.svg" /><span>Settings</span></a>
-        <a href="login.html"><img src="/img/logout.svg" /><span>Logout</span></a>
+        <a href="home.html"><img src="img/dashboard.svg" /><span>Dashboard</span></a>
+        <a href="user-management.html"><img src="img/user.svg" /><span>User Management</span></a>
+        <a href="job.html"><img src="img/job.svg" /><span>Job Management</span></a>
+        <a href="category.html"><img src="img/category.svg" /><span>Category Management</span></a>
+        <a href="statistics.html"><img src="img/statistics.svg" /><span>Statistics</span></a>
+        <a href="message-support.html" class="active"><img src="img/message.svg" /><span>Messages & Support</span></a>
+        <a href="broadcast.html"><img src="img/broadcast.svg" /><span>Broadcast Notification</span></a>
+        <a href="static-content.html"><img src="img/static-content.svg" /><span>Static Content</span></a>
+        <a href="faq.html"><img src="img/faq.svg" /><span>FAQ's</span></a>
+        <a href="setting.html"><img src="img/setting.svg" /><span>Settings</span></a>
+        <a href="login.html"><img src="img/logout.svg" /><span>Logout</span></a>
       </nav>
     </aside>
 
     <!-- Main content -->
     <div class="main" role="main">
       <header class="header">
-        <img class="sidebar-toggle" id="sidebarToggle" src="/img/sidebar-toggle.svg" alt="Toggle Sidebar" />
+        <img class="sidebar-toggle" id="sidebarToggle" src="img/sidebar-toggle.svg" alt="Toggle Sidebar" />
         <span>Message and Support</span>
       </header>
 
       <div class="main-content">
-        <section class="content-card">
-        
-        </section>
+        <div class="h-100">
+          <div class="row h-100 g-3 g-sm-4">
+            <div class="col-xl-6 h-100">
+              <div class="message-support-container h-100 d-flex flex-column pb-4">
+                <div class="inbox-table-header">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h1 class="title-small-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                      Inbox
+                    </h1>
+                    <select class="filter-select body-medium-regular">
+                      <option selected hidden disabled>Sort by</option>
+                      <option>Active</option>
+                      <option>Inactive</option>
+                    </select>
+                  </div>
+                  <div class="inbox-filter-container">
+                    <div class="body-small inbox-filters selected">All</div>
+                    <div class="body-small inbox-filters">Contact Us</div>
+                    <div class="body-small inbox-filters">
+                      Disputes/Reports
+                    </div>
+                  </div>
+                </div>
+                <div class="table-responsive message-and-support-table-container flex-grow-1" style="height: 0px">
+                  <table class="table table-borderless message-and-support-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="contact-us-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium blue">
+                            Contact Us
+                          </div>
+                        </td>
+                        <td class="body-medium-regular">12/03/2024</td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="contact-us-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium blue">
+                            Contact Us
+                          </div>
+                        </td>
+                        <td class="body-medium-regular">12/03/2024</td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="contact-us-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium blue">
+                            Contact Us
+                          </div>
+                        </td>
+                        <td class="body-medium-regular">12/03/2024</td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="contact-us-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium blue">
+                            Contact Us
+                          </div>
+                        </td>
+                        <td class="body-medium-regular">12/03/2024</td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge warning inbox-badge-text" style="border: none">
+                            Pending
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge warning inbox-badge-text" style="border: none">
+                            Pending
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge warning inbox-badge-text" style="border: none">
+                            Pending
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge warning inbox-badge-text" style="border: none">
+                            Pending
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge success inbox-badge-text" style="border: none">
+                            <img src="assets/svg/tick-circle.svg" alt="" />
+                            Completed
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge success inbox-badge-text" style="border: none">
+                            <img src="assets/svg/tick-circle.svg" alt="" />
+                            Completed
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge success inbox-badge-text" style="border: none">
+                            <img src="assets/svg/tick-circle.svg" alt="" />
+                            Completed
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                      <tr class="dispute-row">
+                        <td>
+                          <div class="inbox-td-name">
+                            <div class="avatar-image">
+                              <img src="assets/images/avatar.png" alt="avatar" />
+                            </div>
+
+                            <div class="d-flex flex-column align-items-start">
+                              <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                Olivia Rhye
+                              </h1>
+                              <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                                olivia@gmail.com
+                              </h2>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge text-xs-medium brand">
+                            Dispute
+                          </div>
+                        </td>
+                        <td>
+                          <div class="inbox-badge success inbox-badge-text" style="border: none">
+                            <img src="assets/svg/tick-circle.svg" alt="" />
+                            Completed
+                          </div>
+                        </td>
+
+                        <td>
+                          <img src="assets/svg/three-dot.svg" alt="" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 h-100">
+              <div class="message-support-container h-100" style="box-shadow: 0px 1px 2px 0px #0000000d">
+                <div id="contact-us" style="display: flex" class="flex-column h-100">
+                  <div class="d-flex justify-content-between align-items-center px-4 py-3" style="
+                        border-bottom: 0.4px solid var(--Neutral-20, #d8dce3);
+                      ">
+                    <div class="d-flex align-items-center">
+                      <div class="inbox-td-name">
+                        <div class="avatar-image">
+                          <img src="assets/images/avatar.png" alt="avatar" />
+                        </div>
+
+                        <div class="d-flex flex-column align-items-start">
+                          <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                            Olivia Rhye
+                          </h1>
+                          <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                            olivia@gmail.com
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                      <div class="inbox-badge text-xs-medium blue">
+                        Contact Us
+                      </div>
+                    </div>
+                    <div class="body-medium-regular d-flex align-items-center justify-content-center">
+                      12/03/2024
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center">
+                      <img src="assets/svg/three-dot.svg" alt="" />
+                    </div>
+                  </div>
+                  <div class="d-flex p-4 flex-column inbox-details">
+                    <h1 class="body-large-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                      Report Subject
+                    </h1>
+                    <p class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                      This is placeholder text only, intended for visual
+                      demonstration purposes only. The content here is not
+                      meant to convey any specific information but to
+                      illustrate how text will appear in the final design.
+                      Please note that this text will be replaced with the
+                      approved content at the final stage. For now, it serves
+                      to provide a general idea of layout and formatting.<br />
+                      Please be aware that this is placeholder text only and
+                      is used solely for visual demonstration purposes. The
+                      actual content will be inserted once the design is
+                      finalised and approved. The current text serves as a
+                      temporary stand-in to show how text elements will look
+                      in the final app. Remember, this text is not final and
+                      will be updated later. <br />
+                      This text is placeholder text only, used for the purpose
+                      of visual demonstration. It is important to understand
+                      that this content is not reflective of the final
+                      information and is meant to show text placement and
+                      formatting. At the final stage, this placeholder text
+                      will be replaced with the actual approved content. For
+                      now, it simply fills space in the design.
+                    </p>
+                    <button class="inbox-button body-large-semibold" style="color: #ffffff">
+                      Mark as read
+                    </button>
+                  </div>
+                </div>
+                <div id="dispute" style="display: none" class="flex-column h-100">
+                  <div class="d-flex justify-content-between align-items-center px-4 py-3" style="
+                        border-bottom: 0.4px solid var(--Neutral-20, #d8dce3);
+                      ">
+                    <div class="d-flex align-items-center">
+                      <div class="inbox-td-name">
+                        <div class="avatar-image">
+                          <img src="assets/images/avatar.png" alt="avatar" />
+                        </div>
+
+                        <div class="d-flex flex-column align-items-start">
+                          <h1 class="body-medium-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                            Olivia Rhye
+                          </h1>
+                          <h2 class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                            olivia@gmail.com
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                      <div class="inbox-badge text-xs-medium brand">
+                        Dispute
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                      <div class="inbox-badge warning inbox-badge-text" style="border: none">
+                        Pending
+                      </div>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center">
+                      <img src="assets/svg/three-dot.svg" alt="" />
+                    </div>
+                  </div>
+                  <div class="d-flex p-4 flex-column flex-grow-1">
+                    <div class="custom-tabs">
+                      <div class="tab-slider" id="tabSlider"></div>
+                      <ul class="nav nav-pills custom-nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link tab-button active" id="pills-report-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-report" type="button" role="tab" aria-controls="pills-report"
+                            aria-selected="true">
+                            Report
+                          </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link tab-button" id="pills-job-details-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-job-details" type="button" role="tab"
+                            aria-controls="pills-job-details" aria-selected="false">
+                            Job Details
+                          </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link tab-button" id="pills-messages-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-messages" type="button" role="tab" aria-controls="pills-messages"
+                            aria-selected="false">
+                            Messages (3)
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="tab-content custom-tab-content flex-grow-1" id="pills-tabContent">
+                      <div class="tab-pane fade show active" id="pills-report" role="tabpanel"
+                        aria-labelledby="pills-report-tab" tabindex="0">
+                        <div class="inbox-report-content">
+                          <div class="d-flex flex-column gap-3">
+                            <h1 class="body-large-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                              Report Subject
+                            </h1>
+                            <p class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                              This is placeholder text only, intended for
+                              visual demonstration purposes only. The content
+                              here is not meant to convey any specific
+                              information but to illustrate how text will
+                              appear in the final design. Please note that
+                              this text will be replaced with the approved
+                              content at the final stage. For now, it serves
+                              to provide a general idea of layout and
+                              formatting. <br /><br />
+
+                              This is placeholder text only, intended for
+                              visual demonstration purposes only. The content
+                              here is not meant to convey any specific
+                              information but to illustrate how text will
+                              appear in the final design. Please note that
+                              this text will be replaced with the approved
+                              content at the final stage. For now, it serves
+                              to provide a general idea of layout and
+                              formatting.
+                            </p>
+                            <h1 class="body-large-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                              Reported Date
+                            </h1>
+                            <p class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                              12/03/2024
+                            </p>
+                            <div class="reported-user-details-container">
+                              <div class="reported-user-details-wrapper">
+                                <h1 class="reported-user-details-header mb-0" style="color: var(--Neutral-90, #1a2637)">
+                                  Reported User
+                                </h1>
+                                <div class="reported-user-details">
+                                  <div class="avatar-image">
+                                    <img src="assets/images/avatar.png" alt="avatar" />
+                                  </div>
+                                  <div class="d-flex flex-column" style="gap: 3px">
+                                    <h1 class="reported-user-details-header mb-0" style="
+                                          color: #423d56;
+                                          line-height: 100%;
+                                        ">
+                                      Luke Jackson
+                                    </h1>
+                                    <div class="d-flex gap-2 align-items-center">
+                                      <img src="assets/svg/like.svg" alt="" />
+                                      <p class="reported-user-details-likes mb-0" style="color: #aaa6b9">
+                                        124
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="inbox-button start-chat-text" style="
+                                    color: #334054;
+                                    border: 1px solid #2f5e87;
+                                    padding: 6px 12px;
+                                    background-color: transparent;
+                                    max-width: 83px;
+                                    height: 36px;
+                                  ">
+                                Start Chat
+                              </button>
+                            </div>
+                          </div>
+                          <div class="report-btns-container">
+                            <button class="inbox-button body-large-semibold" style="color: #ffffff; max-width: 160px">
+                              Release Funds
+                            </button>
+                            <button class="inbox-button body-large-semibold" style="color: #ffffff; max-width: 160px">
+                              Give Refund
+                            </button>
+                            <button class="inbox-button body-large-semibold" style="
+                                  color: #334054;
+                                  border: 1px solid #2f5e87;
+                                  background-color: transparent;
+                                  max-width: 160px;
+                                ">
+                              Mark Resolved
+                            </button>
+                          </div>
+                          <div class="report-warning">
+                            <img src="assets/svg/alert.svg" alt="" />
+                            <div class="d-flex flex-column gap-1">
+                              <h1 class="body-large mb-0" style="color: var(--Neutral-90, #27364b)">
+                                Dispute Action Warning
+                              </h1>
+                              <p class="body-exsmall mb-0" style="color: var(--Neutral-90, #27364b)">
+                                Any action taken on this dispute is final,
+                                cannot be undone, and will be communicated to
+                                both users via email. A clear reason must be
+                                provided for the resolution, and once
+                                resolved, users will no longer be able to
+                                leave a review for the job post.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="pills-job-details" role="tabpanel"
+                        aria-labelledby="pills-job-details-tab" tabindex="0">
+                        <div class="inbox-report-content">
+                          <div class="d-flex flex-column gap-3">
+                            <div class="job-detail-image-container">
+                              <img src="assets/images/garden1.png" alt="job detail image"
+                                class="job-detail-image active" />
+                              <img src="assets/images/garden3.jpg" alt="job detail image" class="job-detail-image" />
+                              <img src="assets/images/garden1.png" alt="job detail image" class="job-detail-image" />
+                              <div class="jobs-dots-container">
+                                <div class="job-dots active"></div>
+                                <div class="job-dots"></div>
+                                <div class="job-dots"></div>
+                              </div>
+                            </div>
+                            <h1 class="mb-0 job-details-header" style="color: #272a2f">
+                              Need help gardening
+                            </h1>
+                            <div class="d-flex" style="gap: 10px">
+                              <div class="job-badge">Outdoor</div>
+                              <div class="job-badge" style="max-width: 83px">
+                                Gardening
+                              </div>
+                            </div>
+                            <div class="job-detail-time">
+                              <img src="assets/svg/location.svg" alt="" />
+                              <p class="mb-0">Broadbeach, Gold Coast, AUS</p>
+                            </div>
+                            <div class="job-detail-time">
+                              <img src="assets/svg/time.svg" alt="" />
+                              <p class="mb-0">Now - As soon as possible</p>
+                            </div>
+                            <div class="d-flex gap-3 align-items-center">
+                              <p class="mb-0 job-detail-text-1">Budget</p>
+                              <h1 class="mb-0 job-detail-text-2">$30/hr</h1>
+                            </div>
+                            <p class="mb-0 job-detail-text-3">
+                              This is placeholder text only, intended for
+                              visual demonstration purposes only. The content
+                              here is not meant to convey any specific
+                              information but to illustrate how text will
+                              appear in the final design. Please note that
+                              this text will be replaced with the approved
+                              content at the final stage. This is placeholder
+                              text ...
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="reported-user-details">
+                                <div class="avatar-image">
+                                  <img src="assets/images/avatar.png" alt="avatar" />
+                                </div>
+                                <div class="d-flex flex-column">
+                                  <p class="mb-0 job-detail-text-4">
+                                    Posted By
+                                  </p>
+                                  <p class="mb-0 job-detail-text-5">
+                                    Mary Jackson
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="d-flex gap-2 align-items-center">
+                                <img src="assets/svg/like.svg" alt="" />
+                                <p class="reported-user-details-likes mb-0" style="color: #aaa6b9">
+                                  124
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex flex-column" style="gap: 12px">
+                            <h1 class="body-large-medium mb-0" style="color: var(--Neutral-90, #1a2637)">
+                              Date Posted
+                            </h1>
+                            <p class="body-medium-regular mb-0" style="color: var(--Neutral-60, #515c6d)">
+                              12/03/2024
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="pills-messages" role="tabpanel"
+                        aria-labelledby="pills-messages-tab" tabindex="0">
+                        <div class="inbox-report-content">
+                          <div class="d-flex flex-column" style="gap: 14px">
+                            <div class="text-center chat-text-1">
+                              22 May, 2024
+                            </div>
+
+                            <div class="received-message-1">
+                              <div class="received-message chat-text-2">
+                                Lorem ipsum dolor sit amet, conse? Excepteur
+                                sint occaecat cupida tat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est
+                                laborum
+                              </div>
+                            </div>
+                            <div class="received-message-2">
+                              <img class="chat-profile-img" src="assets/images/image1.jpg" alt="" />
+
+                              <div class="d-flex flex-column gap-2">
+                                <div class="received-message chat-text-2">
+                                  Lorem ipsum dolor sit amet, cons?
+                                </div>
+                                <div class="chat-text-3">12:38</div>
+                              </div>
+                            </div>
+
+                            <div class="received-message-3">
+                              <div class="received-message-4 chat-text-2" style="color: white">
+                                Lorem ipsum dolor sit amet, cons?
+                              </div>
+                            </div>
+                            <div class="received-message-3">
+                              <div class="received-message-4 chat-text-2" style="color: white">
+                                Lorem ipsum dolor sit amet, cons?
+                              </div>
+                            </div>
+                            <div class="received-message-3">
+                              <div class="received-message-4 chat-text-2" style="color: white">
+                                Lorem ipsum dolor sit amet, conse? Excepteur
+                                sint occaecat cupida tat non proident, sunt in
+                                culpa qui officia deserunt mollit anim id est
+                                laborum
+                              </div>
+                              <div class="align-self-end chat-text-3">
+                                12:38
+                              </div>
+                            </div>
+                            <div class="received-message-2">
+                              <img class="chat-profile-img" src="assets/images/image1.jpg" alt="" />
+
+                              <div class="d-flex flex-column gap-2">
+                                <div class="received-message chat-text-2">
+                                  Lorem ipsum dolor sit amet, cons?
+                                </div>
+                                <div class="chat-text-3">12:38</div>
+                              </div>
+                            </div>
+                            <div class="received-message-3">
+                              <div class="received-message-4 chat-text-2" style="color: white">
+                                Lorem ipsum dolor sit amet, cons?
+                              </div>
+                            </div>
+                            <div class="received-message-3">
+                              <div class="received-message-4 chat-text-2" style="color: white">
+                                Lorem ipsum dolor sit amet, cons?
+                              </div>
+                            </div>
+                          </div>
+                          <div style="position: sticky; bottom: 0px">
+                            <div class="position-relative" style="
+                                  height: 88.5px;
+                                  background-color: white;
+                                  border-top-left-radius: 16px;
+                                  border-top-right-radius: 16px;
+                                ">
+                              <textarea class="chat-textarea w-100" name="" id=""
+                                placeholder="Write a message..."></textarea>
+                              <img class="send-image" src="assets/svg/send.svg" alt="" />
+                              <img class="image-upload-image" src="assets/svg/image-upload.svg" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <script src="/js/script.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.querySelectorAll(".inbox-filters").forEach((el) => {
+      el.addEventListener("click", function () {
+        document.querySelectorAll(".inbox-filters").forEach((item) => {
+          item.classList.remove("selected");
+        });
+
+        this.classList.add("selected");
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function updateSlider(activeButton) {
+        console.log(activeButton);
+        console.log(slider);
+        if (!activeButton || !slider) return;
+        console.log(activeButton);
+        console.log(slider);
+        const left = activeButton.offsetLeft;
+        const width = activeButton.offsetWidth;
+        slider.style.left = left + "px";
+        slider.style.width = width + "px";
+      }
+
+      function initializeSlider() {
+        const activeButton = document.querySelector(
+          ".custom-nav-pills .nav-link.active"
+        );
+        console.log(activeButton);
+        if (activeButton) {
+          updateSlider(activeButton);
+        }
+      }
+      const tableRows = document.querySelectorAll(
+        ".message-and-support-table tbody tr"
+      );
+      const contactUsDiv = document.getElementById("contact-us");
+      const disputeDiv = document.getElementById("dispute");
+
+      tableRows.forEach((row) => {
+        row.addEventListener("click", function () {
+          tableRows.forEach((r) => r.classList.remove("active-row"));
+
+          this.classList.add("active-row");
+
+          if (this.classList.contains("contact-us-row")) {
+            contactUsDiv.style.display = "flex";
+            disputeDiv.style.display = "none";
+          } else if (this.classList.contains("dispute-row")) {
+            contactUsDiv.style.display = "none";
+            disputeDiv.style.display = "flex";
+            setTimeout(initializeSlider);
+          }
+        });
+
+        row.style.cursor = "pointer";
+      });
+
+      const slider = document.getElementById("tabSlider");
+      const tabButtons = document.querySelectorAll(
+        ".custom-nav-pills .nav-link"
+      );
+
+      setTimeout(initializeSlider);
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("shown.bs.tab", function (e) {
+          updateSlider(e.target);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        const activeButton = document.querySelector(".nav-link.active");
+        updateSlider(activeButton);
+      });
+    });
+  </script>
+
+  <script>
+    const images = document.querySelectorAll(".job-detail-image");
+    const dots = document.querySelectorAll(".job-dots");
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        images.forEach((img) => img.classList.remove("active"));
+        dots.forEach((d) => d.classList.remove("active"));
+
+        images[index].classList.add("active");
+        dot.classList.add("active");
+      });
+    });
+  </script>
 </body>
+
 </html>

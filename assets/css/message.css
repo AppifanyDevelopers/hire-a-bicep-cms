@@ -1,0 +1,13 @@
+.badge-one {
+  color: #3538cd;
+  border: 1px solid #c7d7fe !important;
+  background-color: #eef4ff;
+}
+
+.user-list {
+  cursor: pointer;
+}
+
+.user-list p {
+  text-decoration: none !important;
+}

@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>User Management</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
 </head>
+
 <body>
 
   <a class="toggle-btn" id="btnToggleSidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar">
-    <img src="/img/minimizer.svg" alt="Minimize" />
+    <img src="img/minimizer.svg" alt="Minimize" />
   </a>
   <div class="overlay" id="sidebarOverlay"></div>
 
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
-      <img src="/img/logo.svg" alt="Logo" class="logo mb-4" />
+      <img src="img/logo.svg" alt="Logo" class="logo mb-4" />
       <nav>
-        <a href="home.html" ><img src="/img/dashboard.svg" /><span>Dashboard</span></a>
-        <a href="user-management.html"  class="active"><img src="/img/user.svg" /><span>User Management</span></a>
-        <a href="job.html"><img src="/img/job.svg" /><span>Job Management</span></a>
-        <a href="category.html"><img src="/img/category.svg" /><span>Category Management</span></a>
-        <a href="statistics.html"><img src="/img/statistics.svg" /><span>Statistics</span></a>
-        <a href="message-support.html"><img src="/img/message.svg" /><span>Messages & Support</span></a>
-        <a href="broadcast.html"><img src="/img/broadcast.svg" /><span>Broadcast Notification</span></a>
-        <a  href="static-content.html" ><img src="/img/static-content.svg" /><span>Static Content</span></a>
-        <a href="faq.html"><img src="/img/faq.svg" /><span>FAQ's</span></a>
-        <a href="setting.html"><img src="/img/setting.svg" /><span>Settings</span></a>
-        <a href="login.html"><img src="/img/logout.svg" /><span>Logout</span></a>
+        <a href="home.html"><img src="img/dashboard.svg" /><span>Dashboard</span></a>
+        <a href="user-management.html" class="active"><img src="img/user.svg" /><span>User Management</span></a>
+        <a href="job.html"><img src="img/job.svg" /><span>Job Management</span></a>
+        <a href="category.html"><img src="img/category.svg" /><span>Category Management</span></a>
+        <a href="statistics.html"><img src="img/statistics.svg" /><span>Statistics</span></a>
+        <a href="message-support.html"><img src="img/message.svg" /><span>Messages & Support</span></a>
+        <a href="broadcast.html"><img src="img/broadcast.svg" /><span>Broadcast Notification</span></a>
+        <a href="static-content.html"><img src="img/static-content.svg" /><span>Static Content</span></a>
+        <a href="faq.html"><img src="img/faq.svg" /><span>FAQ's</span></a>
+        <a href="setting.html"><img src="img/setting.svg" /><span>Settings</span></a>
+        <a href="login.html"><img src="img/logout.svg" /><span>Logout</span></a>
       </nav>
     </aside>
 
     <!-- Main content -->
     <div class="main" role="main">
       <header class="header">
-        <img class="sidebar-toggle" id="sidebarToggle" src="/img/sidebar-toggle.svg" alt="Toggle Sidebar" />
+        <img class="sidebar-toggle" id="sidebarToggle" src="img/sidebar-toggle.svg" alt="Toggle Sidebar" />
         <span>User Management</span>
       </header>
 
       <div class="main-content">
         <section class="content-card">
+
           <div class="bicep-header d-flex justify-content-between align-items-center">
             <div class="d-flex">
               <h4 class="my-0 title-small-semibold p-0 m-0">Users Pending Approval</h4>
@@ -56,17 +59,13 @@
               <div id="toggleTableBtn" onclick="toggleTable()" style="background: none; border: none; cursor: pointer;">
                 <img id="toggleArrow" src="/img/arrow-down.svg" alt="Toggle" style="transition: transform 0.3s;">
               </div>
-              
-              
+
+
             </div>
-            <div class="search-container d-flex align-items-center" style="height: 40px; padding: 8px 16px; border: 1px solid #E2E8F0; border-radius: 16px;">
-              <input
-                type="text"
-                class="border-0"
-                placeholder="Search"
-                id="searchInput"
-                style="flex: 1; outline: none; margin-left: 16px;"
-              />
+            <div class="search-container d-flex align-items-center"
+              style="height: 40px; padding: 8px 16px; border: 1px solid #E2E8F0; border-radius: 16px;">
+              <input type="text" class="border-0" placeholder="Search" id="searchInput"
+                style="flex: 1; outline: none; margin-left: 16px;" />
               <img src="/img/search.svg" class="search-icon" alt="Search" />
             </div>
           </div>
@@ -90,7 +89,7 @@
                     <button class="btn accept-btn" onclick="acceptUser()">Accept</button>
                     <button class="btn reject-btn" onclick="rejectUser()">Reject</button>
                   </td>
-                   <td style="text-align: right; vertical-align: bottom;">
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
@@ -104,7 +103,7 @@
                     <button class="btn accept-btn" onclick="acceptUser()">Accept</button>
                     <button class="btn reject-btn" onclick="rejectUser()">Reject</button>
                   </td>
-                   <td style="text-align: right; vertical-align: bottom;">
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
@@ -133,20 +132,21 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
+
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal">
                       <div class="modal-content" style="padding: 8px;">
-                        <a class="dropdown-item w-100 text-start"  href="view-details.html">View Details</a>
+                        <a class="dropdown-item w-100 text-start" href="view-details.html">View Details</a>
                         <a class="dropdown-item w-100 text-start" href="block-user.html">Block User</a>
-                        <button class="dropdown-item w-100 text-start" data-bs-toggle="modal" data-bs-target="">Delete User</button>
+                        <button class="dropdown-item w-100 text-start" data-bs-toggle="modal" data-bs-target="">Delete
+                          User</button>
                       </div>
                     </div>
                   </td>
@@ -156,21 +156,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="user-btn">USER</button>  
+                    <button class="user-btn">USER</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -179,21 +181,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -202,21 +206,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="user-btn">USER</button>  
+                    <button class="user-btn">USER</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -225,21 +231,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -248,21 +256,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="user-btn">USER</button>  
+                    <button class="user-btn">USER</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -271,21 +281,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -294,21 +306,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -317,21 +331,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -340,21 +356,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -363,21 +381,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -386,21 +406,23 @@
                   <td>user@gmail.com</td>
                   <td>NSW</td>
                   <td>
-                    <button class="bicep-btn">BICEP</button>  
+                    <button class="bicep-btn">BICEP</button>
                   </td>
                   <td>5</td>
                   <td>1</td>
-                 
-                   <td style="text-align: right; vertical-align: bottom;">
+
+                  <td style="text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
                     </button>
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
-                        <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editbicepModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletebicepModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal"
+                          data-bs-target="#editbicepModal">Edit</button>
+                        <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                          data-bs-target="#deletebicepModal">Delete</button>
                       </div>
-                    
+
                     </div>
                   </td>
                 </tr>
@@ -409,16 +431,16 @@
           </div>
         </section>
       </div>
-    
+
     </div>
   </div>
 
-  <script src="/js/script.js"></script>
+  <script src="js/script.js"></script>
   <script>
     function toggleTable() {
       const table = document.getElementById('usertableContainer');
       const arrow = document.getElementById('toggleArrow');
-  
+
       // Toggle visibility
       if (table.style.display === "none") {
         table.style.display = "block";
@@ -428,16 +450,16 @@
         arrow.style.transform = "rotate(-90deg)";
       }
     }
-  
+
     // Optional: Set initial state (visible)
     document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('usertableContainer').style.display = "block";
     });
 
-    document.getElementById('searchInput').addEventListener('input', function(e) {
+    document.getElementById('searchInput').addEventListener('input', function (e) {
       const searchTerm = e.target.value.toLowerCase();
       const rows = document.querySelectorAll('#bicepTableBody tr');
-      
+
       rows.forEach(row => {
         const categoryName = row.cells[0].textContent.toLowerCase();
         if (categoryName.includes(searchTerm)) {
@@ -449,28 +471,29 @@
     });
 
     function toggleModal(event) {
-  event.stopPropagation();
-  const button = event.currentTarget;
-  const td = button.closest('td');
-  const modal = td.querySelector('.actions-modal');
+      event.stopPropagation();
+      const button = event.currentTarget;
+      const td = button.closest('td');
+      const modal = td.querySelector('.actions-modal');
 
-  // Hide all other modals
-  document.querySelectorAll('.actions-modal').forEach(m => {
-    if (m !== modal) m.style.display = 'none';
-  });
+      // Hide all other modals
+      document.querySelectorAll('.actions-modal').forEach(m => {
+        if (m !== modal) m.style.display = 'none';
+      });
 
-  // Toggle current modal
-  modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-}
-
-// Click outside to close any open modal
-document.addEventListener('click', function (e) {
-  document.querySelectorAll('.actions-modal').forEach(modal => {
-    if (!modal.contains(e.target) && !e.target.closest('.btn-actions')) {
-      modal.style.display = 'none';
+      // Toggle current modal
+      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
     }
-  });
-});
-  </script> 
+
+    // Click outside to close any open modal
+    document.addEventListener('click', function (e) {
+      document.querySelectorAll('.actions-modal').forEach(modal => {
+        if (!modal.contains(e.target) && !e.target.closest('.btn-actions')) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </body>
+
 </html>
