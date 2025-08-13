@@ -15,20 +15,23 @@ toggleBtn.addEventListener("click", () => {
 // Set initial position on page load
 updateToggleBtnPosition();
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sidebarToggle = document.getElementById("sidebarToggle");
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("sidebarOverlay");
 
-  sidebarToggle.addEventListener("click", () => {
-    sidebar.classList.add("show");
-    overlay.classList.add("active");
-    sidebarToggle.style.display = "none";
+  document.addEventListener('DOMContentLoaded', function () {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const toggleBtn = document.getElementById('sidebarToggle');
+
+    // Toggle sidebar and overlay
+    toggleBtn?.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+      overlay.classList.toggle('active');
+    });
+
+    // Close sidebar when overlay is clicked
+    overlay?.addEventListener('click', () => {
+      sidebar.classList.remove('show');
+      overlay.classList.remove('active');
+    });
   });
 
-  overlay.addEventListener("click", () => {
-    sidebar.classList.remove("show");
-    overlay.classList.remove("active");
-    sidebarToggle.style.display = "";
-  });
-});
+
