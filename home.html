@@ -1,59 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    
+  </style>
 </head>
-
 <body>
 
   <a class="toggle-btn" id="btnToggleSidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar">
-    <img src="img/minimizer.svg" alt="Minimize" />
+    <img src="/img/minimizer.svg" alt="Minimize" />
   </a>
   <div class="overlay" id="sidebarOverlay"></div>
 
   <div class="layout">
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation">
-      <img src="img/logo.svg" alt="Logo" class="logo mb-4" />
+      <img src="/img/logo.svg" alt="Logo" class="logo mb-4" />
       <nav>
-        <a href="home.html" class="active"><img src="img/dashboard.svg" /><span>Dashboard</span></a>
-        <a href="user-management.html"><img src="img/user.svg" /><span>User Management</span></a>
-        <a href="job.html"><img src="img/job.svg" /><span>Job Management</span></a>
-        <a href="category.html"><img src="img/category.svg" /><span>Category Management</span></a>
-        <a href="statistics.html"><img src="img/statistics.svg" /><span>Statistics</span></a>
-        <a href="message-support.html"><img src="img/message.svg" /><span>Messages & Support</span></a>
-        <a href="broadcast.html"><img src="img/broadcast.svg" /><span>Broadcast Notification</span></a>
-        <a href="static-content.html"><img src="img/static-content.svg" /><span>Static Content</span></a>
-        <a href="faq.html"><img src="img/faq.svg" /><span>FAQ's</span></a>
-        <a href="setting.html"><img src="img/setting.svg" /><span>Settings</span></a>
-        <a href="login.html"><img src="img/logout.svg" /><span>Logout</span></a>
+        <a href="home.html" class="active" ><img src="/img/dashboard.svg" /><span>Dashboard</span></a>
+        <a href="user-management.html"><img src="/img/user.svg" /><span>User Management</span></a>
+        <a href="job.html"><img src="/img/job.svg" /><span>Job Management</span></a>
+        <a href="category.html"><img src="/img/category.svg" /><span>Category Management</span></a>
+        <a href="statistics.html"><img src="/img/statistics.svg" /><span>Statistics</span></a>
+        <a href="message-support.html"><img src="/img/message.svg" /><span>Messages & Support</span></a>
+        <a href="broadcast.html"><img src="/img/broadcast.svg" /><span>Broadcast Notification</span></a>
+        <a  href="static-content.html" ><img src="/img/static-content.svg" /><span>Static Content</span></a>
+        <a href="faq.html"><img src="/img/faq.svg" /><span>FAQ's</span></a>
+        <a href="setting.html" ><img src="/img/setting.svg" /><span>Settings</span></a>
+        <a href="login.html"><img src="/img/logout.svg" /><span>Logout</span></a>
       </nav>
     </aside>
 
     <!-- Main content -->
     <div class="main" role="main">
-      <header class="header">
-        <img class="sidebar-toggle" id="sidebarToggle" src="img/sidebar-toggle.svg" alt="Toggle Sidebar" />
-        <span>Dashboard</span>
-      </header>
+     
+        <img class="sidebar-toggle" id="sidebarToggle" src="/img/sidebar-toggle.svg" alt="Toggle Sidebar" />
+             <section class="dashboard-content-card content-card">
+        <!-- Header -->
+        <div style="margin-bottom: 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <h1 class="title-small">Hello <img src="/img/hello.svg" alt=""></h1>
+              <p class="body-small" style="margin: 5px 0 0 0;color:#94A3B8;">Welcome to the admin portal</p>
+            </div>
+            <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+              <div class="dashboard-search-container">
+                <input type="text" placeholder="Search..." class="dashboard-search-input" style="padding-right: 45px;">
+                <img class="dashboard-search-icon" src="/img/search.svg" alt="" style="right: 12px;">
+              </div>
+              <div style="position: relative; margin-top: 0;">
+                <button class="notification-btn"><img src="/img/notification.svg" alt="notification" /></button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Filters Row -->
+          <div style="display: flex; gap: 15px; margin-top: 20px; margin-bottom: 20px;flex-wrap: wrap; justify-content: end; align-items: center;">
+            <div class="position-relative">
+            <button class="filter-select"  onclick="toggleCalendarWidget()">
+              Date
+            </button>
+            <div class="calendar-container" style="position: absolute;">
+              <div class="date-picker-widget" id="calendarWidget">
+                  <div class="calendar-navigation-header">
+                      <div class="month-year-display" id="monthYearLabel">February 2019</div>
+                      <div class="calendar-navigation-controls">
+                          <button class="month-nav-button" onclick="showPreviousMonth()">
+                              <img src="/img/calendar-right.svg" alt="">
+                          </button>
+                          <button class="month-nav-button" onclick="showNextMonth()">
+                              <img src="/img/calendar-left.svg" alt="">
+                          </button>
+                      </div>
+                  </div>
+                  <div class="calendar-main-grid">
+                      <div class="day-of-week-labels">
+                          <div class="calendar-day-label">S</div>
+                          <div class="calendar-day-label">M</div>
+                          <div class="calendar-day-label">T</div>
+                          <div class="calendar-day-label">W</div>
+                          <div class="calendar-day-label">T</div>
+                          <div class="calendar-day-label">F</div>
+                          <div class="calendar-day-label">S</div>
+                      </div>
+                      <div class="days-panel" id="daysGrid"></div>
+                  </div>
+                  
+                  <button class="apply-selection-action" onclick="confirmDateSelection()">Apply</button>
+              </div>
+           
+          </div>
+            <select class="filter-select">
+              <option>Location</option>
+              <option>New York</option>
+              <option>Los Angeles</option>
+              <option>Chicago</option>
+              <option>Houston</option>
+            </select>
+            <select class="filter-select">
+              <option>User Type</option>
+              <option>Admin</option>
+              <option>User</option>
+              <option>Moderator</option>
+              <option>Guest</option>
+            </select>
+          </div>
+        </div>
 
-      <div class="main-content">
-        <section class="content-card">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="row g-3">
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-label">Total Users</div>
+                <div class="stat-header">
+                  <div class="stat-number">3000</div>
+                  <div class="stat-change positive">+3%</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-label">Data Rooms</div>
+                <div class="stat-header">
+                  <div class="stat-number">30</div>
+                  <div class="stat-change positive">+8%</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-label">Avg. Resp Revenue</div>
+                <div class="stat-header">
+                  <div class="stat-number">$260</div>
+                  <div class="stat-change negative">-1%</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-card">
+                <div class="stat-label">Active Disputes</div>
+                <div class="stat-header">
+                  <div class="stat-number">70</div>
+                  <div class="stat-change positive">+33%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        </section>
-      </div>
-    </div>
-  </div>
+        <!-- Revenue and Dispute Row -->
+        <div class="dashboard-content-row">
+         
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3 class="title-small-semibold">Revenue</h3>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
 
-  <script src="js/script.js"></script>
+          <!-- Dispute Breakdown -->
+          <div class="chart-container">
+            <div class="chart-header">
+              <h3 class="title-small-semibold">Dispute Breakdown</h3>
+              <select class="gauge-filter">
+                <option>Monthly</option>
+                <option>Yearly</option>
+                <option>Weekly</option>
+              </select>
+            </div>
+            <div class="dispute-chart-wrapper">
+              <canvas id="disputeChart"></canvas>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-color legend-resolved"></div>
+                <span>Resolved 70%</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color legend-pending"></div>
+                <span>Pending 30%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Table -->
+        <div id="usertableContainer" class="table-content">
+          <table class="table mb-0">
+            <thead style=" margin-bottom: 16px;">
+              <tr class="text-body-small">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Location</th>
+                <th>Actions</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="bicepTableBody">
+              <tr class="body-exsmall">
+                <td>User Name 1</td>
+                <td>user@gmail.com</td>
+                <td>NSW</td>
+                <td class="d-flex" style="gap:46.51px;">
+                  <button class="btn accept-btn" onclick="acceptUser()">Accept</button>
+                  <button class="btn reject-btn" onclick="rejectUser()">Reject</button>
+                </td>
+                 <td style="text-align: right; vertical-align: bottom;">
+                  <button class="btn-actions" title="More actions">
+                    <img src="/img/threedot.svg" alt="More actions" />
+                  </button>
+                </td>
+              </tr>
+              <tr class="body-exsmall">
+                <td>User Name 1</td>
+                <td>user@gmail.com</td>
+                <td>NSW</td>
+                <td class="d-flex" style="gap:46.51px;">
+                  <button class="btn accept-btn" onclick="acceptUser()">Accept</button>
+                  <button class="btn reject-btn" onclick="rejectUser()">Reject</button>
+                </td>
+                 <td style="text-align: right; vertical-align: bottom;">
+                  <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                    <img src="/img/threedot.svg" alt="More actions" />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="section-header" style="  margin-top:24px;">Performance</h3>
+        <div class="performance-section">
+         
+          <div style="margin-bottom: 20px;">
+            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 15px; color: #2c3e50;">Job Insights</h4>
+            <div class="performance-chart-wrapper">
+              <canvas class="performanceChart"></canvas>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-color legend-completed"></div>
+                <span>Completed Jobs</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color legend-posted"></div>
+                <span>Posted Jobs</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-color legend-active"></div>
+                <span>Active Jobs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+            </div>
+          </div>
+        </div>     
+
+  <script src="/js/script.js"></script>
   <script src="/js/calendar.js"></script>
   <script src="/js/dashboard.js"></script>
 </body>
-
-</html>
+</div>

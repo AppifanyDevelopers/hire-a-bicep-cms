@@ -5,14 +5,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hire A Bicep - Login</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body,
+html {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  background-color: #0d2c49;
+  color: #eff1f3;
+}
+
+</style>
 <body>
     <div class="container">
         <div class="left-pane">
             <div class="logo">
-                <img src="assets/images/login-logo.png" alt="Hire A Bicep Logo" />
+                <img src="img/login-logo.png" alt="Hire A Bicep Logo" />
 
             </div>
             <div class="login-box">
@@ -27,7 +42,7 @@
                         <div class="password-wrapper">
                             <input type="password" id="password" placeholder="Password" />
                             <button type="button" class="toggle-password">
-                                <img src="assets/svg/eye-open.svg" alt="Toggle Password" style="height: 20px;" />
+                                <img src="img/svg/eye-open.svg" alt="Toggle Password" style="height: 20px;" />
                             </button>
                         </div>
                         <span class="error-text" id="passwordError"></span>
@@ -43,7 +58,7 @@
             </div>
         </div>
         <div class="right-pane">
-            <img src="assets/images/bicep-logo.png" alt="Bicep Arm Illustration" />
+            <img src="img/bicep-logo.png" alt="Bicep Arm Illustration" />
         </div>
     </div>
     <!-- <script src="script.js"></script> -->
@@ -57,8 +72,8 @@
             const isPasswordVisible = passwordField.getAttribute('type') === 'text';
             passwordField.setAttribute('type', isPasswordVisible ? 'password' : 'text');
             toggleImg.src = isPasswordVisible
-                ? 'assets/svg/eye-open.svg'
-                : 'assets/svg/eye-close.svg';
+                ? 'img/svg/eye-open.svg'
+                : 'img/svg/eye-close.svg';
             toggleImg.alt = isPasswordVisible ? 'Show Password' : 'Hide Password';
         });
 
