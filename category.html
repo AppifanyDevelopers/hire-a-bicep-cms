@@ -98,16 +98,87 @@
           <div class="bicep-header d-flex justify-content-between align-items-center mb-3">
             <h4 class="my-0 title-small-semibold" style="padding-top: 2px;">Category List</h4>
 
-            <div class="search-container d-flex align-items-center" style="height: 40px; padding: 8px 16px; border: 1px solid #E2E8F0; border-radius: 16px;">
-              <input
-                type="text"
-                class="border-0"
-                placeholder="Search"
-                id="searchInput"
-                style="flex: 1; outline: none; margin-left: 16px;"
-              />
-              <img src="/img/search.svg" class="search-icon" alt="Search" />
-            </div>
+            <style>
+              .search-container {
+                  position: relative;
+                  width: 100%;
+                  max-width: 241px;
+                  min-width: 200px;
+              }
+              @media (max-width: 480px) {
+                  body {
+                      padding: 16px;
+                  }
+                  
+                  .search-container {
+                      min-width: 180px;
+                  }
+                  
+                  .search-input {
+                      font-size: 16px; /* Prevents zoom on iOS */
+                  }
+              }
+      
+              @media (max-width: 320px) {
+                  .search-container {
+                      min-width: 160px;
+                  }
+              }
+      
+              .search-input {
+                  width: 100%;
+                  height: 40px;
+                  border: 1px solid #E2E8F0;
+                  border-radius: 16px;
+                  padding: 8px 16px 8px 48px;
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #64748b;
+                  background-color: white;
+                  outline: none;
+                  box-sizing: border-box;
+                  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+              }
+      
+              .search-input::placeholder {
+                  color: #94a3b8;
+              }
+      
+              .search-input:focus {
+                  border-color: #3b82f6;
+                  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+              }
+      
+              .search-icon {
+                  position: absolute;
+                  left: 16px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  width: 20px;
+                  height: 20px;
+                  opacity: 0.6;
+                  pointer-events: none;
+              }
+      
+              /* Search icon SVG */
+              .search-svg {
+                  width: 20px;
+                  height: 20px;
+                  stroke: #64748b;
+                  stroke-width: 2;
+                  fill: none;
+              }
+          </style>
+      
+          <div class="search-container">
+             <img class="search-icon search-svg" src="/img/search.svg" alt="">
+              <input 
+                  type="text" 
+                  class="search-input" 
+                  placeholder="Search"
+                  aria-label="Search"
+              >
+          </div>
           </div>
 
           <div class="alert alert-warning d-flex align-items-start mb-4" role="alert">
