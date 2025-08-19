@@ -42,7 +42,7 @@ const ageChart = new Chart(barctx, {
         ticks: {
           stepSize: 10000,
           callback: function (value) {
-            return value / 1000 + "k";
+            return value / 1000;
           },
         },
         max: 40000,

@@ -34,17 +34,8 @@ const monthNamesShort = [
 
 function toggleCalendarWidget() {
   const widget = document.getElementById("calendarWidget");
-  const chevron = document.getElementById("chevronIcon");
-
   isWidgetVisible = !isWidgetVisible;
-
-  if (isWidgetVisible) {
-    widget.classList.add("visible");
-    chevron.classList.add("open");
-  } else {
-    widget.classList.remove("visible");
-    chevron.classList.remove("open");
-  }
+  widget.style.display = isWidgetVisible ? "block" : "none";
 }
 
 function renderCalendar() {
@@ -63,17 +54,14 @@ function renderCalendar() {
   const prevMonthDate = new Date(year, month, 0);
   const daysInPrevMonth = prevMonthDate.getDate();
 
-  // Populate previous month's days
   for (let i = startingDayOfWeek - 1; i >= 0; i--) {
     daysGrid.appendChild(createDayCell(daysInPrevMonth - i, true));
   }
 
-  // Populate current month's days
   for (let day = 1; day <= daysInMonth; day++) {
     daysGrid.appendChild(createDayCell(day, false));
   }
 
-  // Populate next month's days
   const totalCells = daysGrid.children.length;
   const remainingCells = 42 - totalCells;
   for (let day = 1; day <= remainingCells; day++) {
@@ -215,7 +203,7 @@ function confirmDateSelection() {
 
 document.addEventListener("click", function (event) {
   const widget = document.getElementById("calendarWidget");
-  const toggleButton = document.querySelector(".date-range-toggle-button");
+  const toggleButton = document.querySelector(".filter-select");
 
   if (!widget.contains(event.target) && !toggleButton.contains(event.target)) {
     if (isWidgetVisible) {

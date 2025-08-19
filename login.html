@@ -7,6 +7,16 @@
     <title>Hire A Bicep - Login</title> 
 </head>
 <style>
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-clear-button {
+  display: none !important;
+}
+
    * {
   margin: 0;
   padding: 0;
@@ -235,6 +245,11 @@ form {
 
 .input-error {
   border: 2px solid red !important;
+}
+
+.input-error::placeholder {
+  color: red; /* placeholder turns red on error */
+  opacity: 1; /* ensure it's visible in all browsers */
 }
 
 .error-text {

@@ -14,6 +14,19 @@
     .filter-select{
         background-color: white;
     }
+    .dashboard-content-row {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .dashboard-content-row {
+    grid-template-columns: 3.5fr 2.5fr; /* Revert to side-by-side on larger screens */
+  }
+}
 </style>
 <body>
 
@@ -206,8 +219,7 @@
 }
 
             .dashboard-content-row {
-              display: grid;
-              grid-template-columns: 3.5fr 2.5fr;
+             
               gap: 20px;
               width: 100%;
               margin: 0 auto;

@@ -9,10 +9,7 @@ const verticalLinePlugin = {
       const topY = chart.scales.y.top;
       const bottomY = chart.scales.y.bottom;
 
-      // Save the current state
       ctx.save();
-
-      // Draw vertical dotted line
       ctx.beginPath();
       ctx.setLineDash([5, 5]);
       ctx.moveTo(x, topY);
@@ -20,8 +17,6 @@ const verticalLinePlugin = {
       ctx.lineWidth = 1;
       ctx.strokeStyle = "#94A3B8";
       ctx.stroke();
-
-      // Restore the state
       ctx.restore();
     }
   },
@@ -52,9 +47,8 @@ const revenueChart = new Chart(revenueCtx, {
     datasets: [
       {
         label: "Revenue",
-        data: [15, 25, 18, 32, 28, 38, 22, 42, 35, 48, 40, 52],
+        data: [15, 25, 18, 32, 28, 38, 22, 42, 35, 58, 40, 77],
         borderColor: "#F6BC0E",
-
         backgroundColor: "#fffcf5",
         tension: 0.4,
         fill: true,
@@ -85,7 +79,7 @@ const revenueChart = new Chart(revenueCtx, {
         displayColors: false,
         callbacks: {
           label: function (context) {
-            return context.parsed.y + "k";
+            return context.parsed.y;
           },
         },
       },
@@ -106,6 +100,8 @@ const revenueChart = new Chart(revenueCtx, {
         },
       },
       y: {
+        min: 0,
+        max: 100,
         grid: {
           color: "#ecf0f1",
           drawBorder: false,
@@ -118,8 +114,9 @@ const revenueChart = new Chart(revenueCtx, {
           font: {
             size: 12,
           },
+          stepSize: 20,
           callback: function (value) {
-            return value + "k";
+            return value;
           },
         },
       },
@@ -152,64 +149,38 @@ const disputeChart = new Chart(disputeCtx, {
     cutout: "70%",
     rotation: -120,
     plugins: {
-      legend: {
-        display: false,
-      },
+      legend: { display: false },
       tooltip: {
-        backgroundColor: "rgba(255, 255, 255, 0.95)",
-        titleColor: "#2c3e50",
-        bodyColor: "#2c3e50",
-        borderColor: "#e9ecef",
-        borderWidth: 1,
-        borderRadius: 34,
-        cornerRadius: 8,
+        enabled: true,
+        animation: false,
         callbacks: {
           label: function (context) {
             return context.label + ": " + context.parsed + "%";
           },
         },
       },
-
-      centerText: {
-        text: ["70", "Disputes"],
-        color: "#2c3e50",
-        font: {
-          size: [16, 12],
-          family: "Arial",
-          weight: [700],
-        },
-      },
     },
+    animation: { duration: 0 },
   },
   plugins: [
     {
       id: "centerText",
       afterDraw: function (chart) {
-        const ctx = chart.ctx;
-        const width = chart.width;
-        const height = chart.height;
+        const { ctx, chartArea } = chart;
+        const centerX = (chartArea.left + chartArea.right) / 2;
+        const centerY = (chartArea.top + chartArea.bottom) / 2;
+
         ctx.save();
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.font =
-          chart.options.plugins.centerText.font.size[0] +
-          "px " +
-          chart.options.plugins.centerText.font.family;
-        ctx.fillStyle = chart.options.plugins.centerText.color;
-        ctx.fillText(
-          chart.options.plugins.centerText.text[0],
-          width / 2,
-          height / 2 - 6
-        );
-        ctx.font =
-          chart.options.plugins.centerText.font.size[1] +
-          "px " +
-          chart.options.plugins.centerText.font.family;
-        ctx.fillText(
-          chart.options.plugins.centerText.text[1],
-          width / 2,
-          height / 2 + 10
-        );
+        ctx.fillStyle = "#2c3e50";
+
+        ctx.font = "16px Arial";
+        ctx.fillText("70", centerX, centerY - 10);
+
+        ctx.font = "12px Arial";
+        ctx.fillText("Disputes", centerX, centerY + 10);
+
         ctx.restore();
       },
     },
@@ -219,7 +190,6 @@ const disputeChart = new Chart(disputeCtx, {
 const performanceCtx = document
   .querySelector(".performanceChart")
   .getContext("2d");
-
 const performanceChart = new Chart(performanceCtx, {
   type: "line",
   data: {

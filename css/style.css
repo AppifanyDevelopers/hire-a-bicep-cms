@@ -40,7 +40,11 @@ body {
 .sidebar.minimized .logo {
   width: 40px;
 }
-
+@media (max-width: 768px) {
+  .main-content {
+    padding: 2px;
+  }
+}
 .sidebar nav a {
   display: flex;
   align-items: center;
@@ -64,11 +68,18 @@ body {
 }
 
 .sidebar nav a.active {
-  background-color: #eff6ff;
-  color: #515c6d;
+  display: inline-block; /* or block */
+  color: #2f5e87;
   font-weight: 600;
   border-left: 5px solid #597e9f;
   padding-left: 19px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.sidebar nav a.active img {
+  filter: invert(28%) sepia(49%) saturate(401%) hue-rotate(179deg)
+    brightness(91%) contrast(86%);
 }
 
 .toggle-btn {
@@ -595,10 +606,15 @@ tbody tr td:first-child {
   width: 160px;
   height: 44px;
   font-size: 16px;
+  transition: none; /* optional: remove smooth hover transitions */
 }
-.btn-add-bicep::hover {
-  background-color: #163651;
+
+.btn-add-bicep:hover {
+  background-color: #163651; /* keep same color on hover */
+  color: white; /* keep same text color */
+  cursor: default; /* optional: remove pointer effect */
 }
+
 .bicep-header {
   display: flex;
   justify-content: space-between;
@@ -640,6 +656,7 @@ tbody tr td:first-child {
   }
 
   .btn-add-bicep {
+    padding: 5px 6px;
     width: 100% !important;
     max-width: 200px !important;
   }
@@ -1028,7 +1045,7 @@ tbody tr td:first-child {
   font-size: 0.8rem;
   cursor: pointer;
   appearance: none;
-  background-image: url("/img/arrow-down.svg");
+  background-image: url("/img/filter-select.svg");
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 12px;
@@ -1097,8 +1114,9 @@ tbody tr td:first-child {
   padding: 15px 45px 15px 16px;
   border: 1px solid #e7eae9;
   border-radius: 12px;
-  height: 50px;
-  width: 250px;
+  border: 1px solid #e7eae9;
+  height: 48px;
+  width: 238px;
   box-sizing: border-box;
 }
 
@@ -1123,7 +1141,7 @@ tbody tr td:first-child {
   color: #2c3e50;
   min-width: 120px;
   appearance: none;
-  background-image: url("/img/arrow-down.svg");
+  background-image: url("/img/filter-select.svg");
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 12px;
@@ -1136,8 +1154,8 @@ tbody tr td:first-child {
   padding: 0;
   border-radius: 12px;
   cursor: pointer;
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 49px;
   display: flex;
   align-items: center;
   justify-content: center;

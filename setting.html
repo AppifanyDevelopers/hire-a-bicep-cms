@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
   <a class="toggle-btn" id="btnToggleSidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar">
     <img src="img/minimizer.svg" alt="Minimize" />
   </a>
@@ -37,7 +36,6 @@
       </nav>
     </aside>
 
-    <!-- Main content -->
     <div class="main" role="main">
       <header class="header">
         <img class="sidebar-toggle" id="sidebarToggle" src="img/sidebar-toggle.svg" alt="Toggle Sidebar" />
@@ -45,14 +43,854 @@
       </header>
 
       <div class="main-content">
-        <section class="content-card">
-
-        </section>
+        <div class="setting-card">
+          <ul class="nav nav-tabs setting-custom-tabs">
+            <li class="nav-item">
+              <a class="nav-link text-body-b3 active" data-bs-toggle="tab" aria-current="page" data-bs-target="#profile">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.99967 1.33203C6.25301 1.33203 4.83301 2.75203 4.83301 4.4987C4.83301 6.21203 6.17301 7.5987 7.91967 7.6587C7.97301 7.65203 8.02634 7.65203 8.06634 7.6587C8.07967 7.6587 8.08634 7.6587 8.09967 7.6587C8.10634 7.6587 8.10634 7.6587 8.11301 7.6587C9.81967 7.5987 11.1597 6.21203 11.1663 4.4987C11.1663 2.75203 9.74634 1.33203 7.99967 1.33203Z" fill="currentColor" />
+                  <path d="M11.3866 9.43391C9.52664 8.19391 6.49331 8.19391 4.61997 9.43391C3.77331 10.0006 3.30664 10.7672 3.30664 11.5872C3.30664 12.4072 3.77331 13.1672 4.61331 13.7272C5.54664 14.3539 6.77331 14.6672 7.99997 14.6672C9.22664 14.6672 10.4533 14.3539 11.3866 13.7272C12.2266 13.1606 12.6933 12.4006 12.6933 11.5739C12.6866 10.7539 12.2266 9.99391 11.3866 9.43391Z" fill="currentColor" />
+                </svg>
+                <img class="setting-active-state" src="img/small-active-state.svg" />
+                <span>Profile</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-body-b3" data-bs-toggle="tab" data-bs-target="#change-password">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.99975 11.5679C8.5999 11.5679 9.08642 11.0813 9.08642 10.4812C9.08642 9.88105 8.5999 9.39453 7.99975 9.39453C7.3996 9.39453 6.91309 9.88105 6.91309 10.4812C6.91309 11.0813 7.3996 11.5679 7.99975 11.5679Z" fill="currentColor" />
+                  <path d="M12.1863 6.35203V5.5187C12.1863 3.7187 11.753 1.33203 7.99967 1.33203C4.24634 1.33203 3.81301 3.7187 3.81301 5.5187V6.35203C1.94634 6.58536 1.33301 7.53203 1.33301 9.8587V11.0987C1.33301 13.832 2.16634 14.6654 4.89967 14.6654H11.0997C13.833 14.6654 14.6663 13.832 14.6663 11.0987V9.8587C14.6663 7.53203 14.053 6.58536 12.1863 6.35203ZM7.99967 12.492C6.88634 12.492 5.98634 11.5854 5.98634 10.4787C5.98634 9.36537 6.89301 8.46536 7.99967 8.46536C9.10634 8.46536 10.013 9.37203 10.013 10.4787C10.013 11.592 9.11301 12.492 7.99967 12.492ZM4.89967 6.29203C4.84634 6.29203 4.79967 6.29203 4.74634 6.29203V5.5187C4.74634 3.56536 5.29967 2.26536 7.99967 2.26536C10.6997 2.26536 11.253 3.56536 11.253 5.5187V6.2987C11.1997 6.2987 11.153 6.2987 11.0997 6.2987H4.89967V6.29203Z" fill="currentColor" />
+                </svg>
+                <img class="setting-active-state" src="/img/small-active-state.svg" />
+                <span>Change Password</span>
+              </a>
+            </li>
+          </ul>
+          <hr class="setting-vertical-line" />
+          <div class="tab-content setting-tab-content">
+            <div id="profile" class="tab-pane fade show active">
+              <div class="profile-container">
+                <h1 class="setting-header text-heading-h3 mb-4">Profile</h1>
+                <div class="setting-profile-details-container">
+                  <div class="d-flex gap-4 align-items-center">
+                    <img class="setting-profile-image" src="img/profile-image.jpeg" />
+                    <div class="setting-profile-details">
+                      <h3 class="text-body-b2 mb-0">James Goldie</h3>
+                      <span class="text-body-b3">Doctor</span>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center gap-4">
+                    <button class="btn-3 btn-1-primary text-body-b3" style="width: 168px; white-space: nowrap;color:white;">
+                      Upload new photo
+                    </button>
+                    <button class="btn-3 btn-1-basic text-body-b3" style="width: 151px;border:1px solid #374151;">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+                <hr class="setting-profile-horizontal-line" />
+                <div id="profile-details-text" class="setting-profile-information-container">
+                  <div class="row g-3 g-sm-4">
+                    <div class="col-md-6">
+                      <div class="setting-profile-information">
+                        <span class="text-body-b3">Name</span>
+                        <h4 class="text-body-b3 mb-0">James Goldie</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="setting-profile-information">
+                        <span class="text-body-b3">Email</span>
+                        <h4 class="text-body-b3 mb-0">jamesgoldie@gmail.com</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="setting-profile-information">
+                        <span class="text-body-b3">Mobile Number</span>
+                        <h4 class="text-body-b3 mb-0">045627892</h4>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="setting-profile-information">
+                        <span class="text-body-b3">Occupation</span>
+                        <h4 class="text-body-b3 mb-0">Doctor</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <button class="btn-1 btn-1-primary text-body-b1 mt-4 mb-4" style="width: 240px">Edit</button>
+                  </div>
+                </div>
+                <div id="profile-details-form" class="setting-profile-information-container" style="display: none">
+                  <form class="d-flex flex-column flex-grow-1 justify-content-between">
+                    <div class="row g-3 g-sm-4">
+                      <div class="col-md-6">
+                        <div class="textfield-1">
+                          <input type="text" class="text-body-b2" placeholder="" value="Input" />
+                          <label class="text-body-b2">Name</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="textfield-1">
+                          <input type="email" class="text-body-b2" placeholder="" value="Input" />
+                          <label class="text-body-b2">Email</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="textfield-1">
+                          <input type="text" class="text-body-b2" placeholder="" value="Input" />
+                          <label class="text-body-b2">Mobile number</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="textfield-1">
+                          <input type="text" class="text-body-b2" placeholder="" value="Input" />
+                          <label class="text-body-b2">Occupation</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex gap-4 mt-4">
+                      <button class="btn-1 btn-1-primary text-body-b1" style="width: 240px">Save</button>
+                      <button class="btn-1 btn-1-basic text-body-b1" style="width: 168px;border:1px solid #374151;">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div id="change-password" class="tab-pane fade">
+              <div class="profile-container">
+                <h1 class="setting-header text-heading-h3 mb-4">Change Password</h1>
+                <div class="change-password-content">
+                  <form>
+                    <div class="gap-4 d-flex flex-column">
+                      <div class="textfield-1">
+                        <input type="password" class="text-body-b2" id="new-password" placeholder="" value="" />
+                        <label class="text-body-b2">New Password</label>
+                      </div>
+                      <div class="textfield-1">
+                        <input type="password" class="text-body-b2" placeholder="" value="" />
+                        <label class="text-body-b2">Confirm New Password</label>
+                      </div>
+                    </div>
+                    <button class="text-body-b1 btn-1 btn-1-primary mt-4" style="max-width: 240px">Change Password</button>
+                  </form>
+                  <div class="change-password-error-container">
+                    <h1 class="text-body-b1">Password must contain:</h1>
+                    <span class="text-body-b3" id="check-1">At least 1 upper case letter (A-Z)</span>
+                    <span class="text-body-b3" id="check-2">At least 1 number (0-9)</span>
+                    <span class="text-body-b3" id="check-3">At least 8 characters</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+  <style>
+    /* Tabs on all screens */
+    .setting-custom-tabs {
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .setting-custom-tabs .nav-item {
+      margin-bottom: 0;
+    }
+
+    .setting-custom-tabs .nav-link {
+      flex-direction: row;
+      gap: 8px; /* Adjust icon and text spacing */
+      padding: 8px 16px;
+      white-space: nowrap;
+    }
+
+    .setting-custom-tabs .nav-link span {
+      display: inline; /* Ensure text is visible on large screens */
+    }
+
+    /* Hide span text on small screens */
+    @media (max-width: 768px) {
+      .setting-custom-tabs .nav-link span {
+        display: none; /* Hide "Profile" and "Change Password" on small screens */
+      }
+    }
+
+    /* Ensure content fits within card on small screens */
+    @media (max-width: 768px) {
+      .setting-card {
+        height: auto; /* Allow card to adjust height */
+        overflow-y: auto; /* Enable scrolling if content overflows */
+        padding: 16px;
+      }
+
+      .setting-tab-content {
+        width: 100%;
+        padding: 0;
+      }
+
+      .profile-container {
+        height: auto; /* Allow content to adjust */
+        padding: 0;
+      }
+
+      .setting-profile-information-container {
+        max-width: 100%;
+        flex-grow: 0; /* Prevent stretching */
+      }
+
+      .row.g-3.g-sm-4 {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .col-md-6 {
+        width: 100%;
+        padding: 0;
+      }
+
+      .change-password-content {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .change-password-content form {
+        max-width: 100%;
+      }
+
+      .change-password-error-container {
+        text-align: center;
+        margin-top: 16px;
+      }
+    }
+
+    /* Reset active state positioning for consistency */
+    .setting-active-state {
+      left: 0;
+      transform: none;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* Existing styles (unchanged) */
+    .change-password-content {
+      display: flex;
+      gap: 64px;
+      max-width: 592px;
+      width: 100%;
+      flex-grow: 1;
+    }
+
+    .change-password-content form {
+      display: flex;
+      width: 100%;
+      max-width: 300px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .change-password-error-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .change-password-error-container h1 {
+      color: #374151;
+      margin-bottom: 16px;
+    }
+
+    .change-password-error-container span {
+      color: var(--Text-100, #374151);
+      margin-bottom: 12px;
+    }
+
+    .contact-us-form {
+      display: flex;
+      width: 100%;
+      max-width: 624px;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .textfield-1 textarea {
+      height: 123px;
+      border-radius: 12px;
+      border: 1px solid #374151;
+      padding: 10px 16px;
+      background: inherit;
+      color: #374151;
+      outline: 0;
+    }
+
+    .modal-hr {
+      border-top: 1px solid #a2a1a81a;
+      opacity: 1;
+      margin-top: 16px;
+      margin-bottom: 20px;
+    }
+
+    .page-content {
+      padding: 0px 32px;
+      height: calc(100% - 82px);
+    }
+
+    .setting-card {
+      width: 100%;
+      height: 100%;
+      background: #f3f4f6;
+      border: 1px solid #d8dce3;
+      box-shadow: 2px 4px 10px 0px #1c274a1a;
+      padding: 24px;
+      border-radius: 16px;
+      flex-grow: 1;
+      display: flex;
+    }
+
+    .setting-custom-tabs {
+      display: flex;
+      flex-direction: column;
+      border-bottom: none;
+    }
+
+    .setting-custom-tabs .nav-link {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      border: none !important;
+      transition: color 0.3s ease;
+      cursor: pointer;
+      color: #374151;
+      padding: 0px;
+      margin-bottom: 24px;
+      white-space: nowrap;
+    }
+
+    .setting-custom-tabs .nav-link.active {
+      background: none;
+      border: none;
+      color: var(--Primary-500, #008cff);
+      position: relative;
+    }
+
+    .setting-active-state {
+      position: absolute;
+  
+      left: -33px;
+      display: none;
+    }
+
+    .setting-custom-tabs .nav-link.active .setting-active-state {
+      display: block;
+    }
+
+    .setting-vertical-line {
+      width: 1px;
+      height: 100%;
+      border-right: 1px solid var(--Bg-Border, #1b2c3a);
+      opacity: 1;
+      margin: 0px 32px 0px 24px;
+    }
+
+    .setting-header {
+      color: #374151;
+    }
+
+    .setting-tab-content {
+      flex-grow: 1;
+      padding: 0;
+    }
+
+    .setting-profile-details-container {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .setting-profile-image {
+      width: 94px;
+      height: 94px;
+      border-radius: 16px;
+      background: var(--Bg-Dark, #bbc4cb);
+      object-fit: cover;
+    }
+
+    .setting-profile-details {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .setting-profile-details h3 {
+      color: #374151;
+    }
+
+    .setting-profile-details span {
+      color: #374151;
+    }
+
+    .setting-profile-horizontal-line {
+      border-top: 2px solid var(--Bg-Border, #374151);
+      opacity: 1;
+      margin: 32px 0px;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 0;
+    }
+
+    .setting-profile-information-container {
+      max-width: 624px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .setting-profile-information {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .setting-profile-information h4 {
+      color: #374151;
+    }
+
+    .setting-profile-information span {
+      color: #374151;
+    }
+
+    .setting-tab-content .tab-pane {
+      height: 100%;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: rgba(200, 206, 211, 1);
+      transition: all 0.2s ease-in-out;
+      pointer-events: none;
+      background-color: transparent;
+    }
+
+    .styled-input {
+      width: 100%;
+      height: 44px;
+      border: 1px solid rgba(200, 206, 211, 1);
+      border-radius: 12px;
+      background: #f3f4f6;
+      color: rgba(230, 236, 241, 1);
+      padding: 12px 16px;
+      padding-right: 40px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .styled-input:focus,
+    .styled-input:not(:placeholder-shown) {
+      border-color: rgba(230, 236, 241, 1);
+    }
+
+    .styled-input:focus + .input-label,
+    .styled-input:not(:placeholder-shown) + .input-label {
+      top: 3px;
+      font-size: 12px;
+      background-color: #eaeff3;
+      padding: 0 4px;
+    }
+
+    .styled-input:not(:placeholder-shown) + .input-label {
+      font-weight: 600;
+    }
+
+    .input-fields {
+      margin: 0 auto;
+      width: 345px;
+    }
+
+    .error-message {
+      display: none;
+      color: #ff4444;
+      font-size: 13px;
+      margin-top: 4px;
+      text-align: left;
+      font-weight: 400;
+      height: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .error-message.show {
+      display: block;
+      height: auto;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 21px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: none;
+      z-index: 2;
+    }
+
+    .password-toggle svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: rgba(200, 206, 211, 1);
+    }
+
+    .password-toggle:hover svg {
+      stroke: rgba(230, 236, 241, 1);
+    }
+
+    .password-container .styled-input:not(:placeholder-shown) + .input-label + .password-toggle {
+      display: block;
+    }
+
+    .password-container .styled-input:not(:placeholder-shown) + .input-password-label + .password-toggle {
+      display: block;
+    }
+
+    .btn-3.btn-1-primary:disabled {
+      background: var(--Primary-500, #008cff);
+      opacity: 0.55;
+    }
+
+    .btn-3.btn-1-secondary:disabled {
+      background: #ff3e95;
+      opacity: 0.55;
+    }
+
+    .btn-1 {
+      height: 52px;
+      padding: 6px 32px 6px 32px;
+      border-radius: 24px;
+      gap: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn-3.btn-1-basic:disabled {
+      border: 1.5px solid var(--Primary-500, #008cff);
+      color: var(--Primary-500, #008cff);
+      opacity: 0.55;
+    }
+
+    .btn-3 {
+      height: 36px;
+      padding: 6px 32px 6px 32px;
+      gap: 10px;
+      border-radius: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (max-width: 480px) {
+      .page-content {
+        padding: 0px 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .setting-content {
+        padding: 24px 0px;
+      }
+
+      .pages-title-container {
+        margin-bottom: 24px;
+      }
+
+      .setting-card {
+        padding: 16px;
+      }
+
+      .setting-vertical-line {
+        margin: 0px 16px;
+      }
+
+      .setting-active-state {
+        left: -25px;
+      }
+
+      .setting-header {
+        margin-bottom: 16px;
+      }
+
+      .setting-profile-horizontal-line {
+        margin: 24px 0px;
+      }
+
+      .setting-profile-details-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .setting-profile-details-container .d-flex.align-items-center.gap-4 {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .setting-profile-details-container button {
+        width: 100%;
+        max-width: 240px;
+      }
+
+      .change-password-content {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .setting-profile-information-container {
+        max-width: 100%;
+      }
+
+      .profile-image-container {
+        width: 42px;
+        height: 42px;
+      }
+
+      .profile-image {
+        width: 42px;
+        height: 42px;
+      }
+
+      .profile-details {
+        gap: 1px;
+      }
+
+      .page-content {
+        height: calc(100% - 122px);
+        padding: 0px 24px;
+      }
+
+      .setting-profile-information-container .row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .setting-profile-information-container .col-md-6 {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .setting-profile-information-container .btn-1 {
+        width: 100%;
+        max-width: 240px;
+        margin-top: 16px;
+      }
+    }
+
+    .setting-content {
+      padding: 32px 0px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-1-primary {
+      background: var(--Primary-500, #008cff);
+      color: white;
+      border: none;
+    }
+
+    .btn-1-primary:hover {
+      background: var(--Primary-400, #33a3ff);
+    }
+
+    .btn-1-primary:disabled {
+      background: var(--Primary-200, #99d1ff);
+    }
+
+    .textfield-1 {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      background: inherit;
+    }
+
+    .textfield-1 label {
+      position: absolute;
+      top: 10px;
+      left: 16px;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      color: #374151;
+    }
+
+    .textfield-1 input:focus ~ label,
+    .textfield-1 input:not(:placeholder-shown) ~ label,
+    .textfield-1 select:focus ~ label,
+    .textfield-1 select:not([value=""]):valid ~ label,
+    .textfield-1 textarea:focus ~ label,
+    .textfield-1 textarea:not(:placeholder-shown) ~ label {
+      top: -8px;
+      left: 12px;
+      padding: 0px 4px 0px 4px;
+      background: var(--Bg-Medium, #f3f4f6);
+      color: var(--Text-100, #374151);
+      font-size: 10px;
+      font-weight: 400;
+      line-height: 15px;
+    }
+
+    .text-body-b2 {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+
+    .textfield-1 input:-webkit-autofill,
+    .textfield-1 .flatpickr-wrapper .date-input:-webkit-autofill,
+    .textfield-1 input:autofill,
+    .textfield-1 .flatpickr-wrapper .date-input:autofill {
+      background-color: transparent !important;
+      -webkit-text-fill-color: #374151 !important;
+      box-shadow: 0 0 0px 1000px transparent inset !important;
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .textfield-1 input,
+    .textfield-1 .flatpickr-wrapper .date-input,
+    .textfield-1 select {
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid #374151;
+      padding: 10px 16px;
+      background: inherit;
+      color: #374151;
+      width: 100%;
+    }
+
+    .textfield-1 select {
+      appearance: none;
+      background: url(/assets/icons/Down.svg);
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: right 10px center;
+    }
+
+    .textfield-1 select option {
+      background-color: #f3f4f6;
+    }
+
+    .habits-admin-modal select option {
+      background-color: #f3f4f6;
+    }
+
+    .textfield-1 .flatpickr-wrapper .date-input {
+      background: url(/assets/icons/calender-icon.svg);
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: right 10px center;
+    }
+
+    .textfield-1 input:focus-visible,
+    .textfield-1 .flatpickr-wrapper .date-input:focus-visible,
+    .textfield-1 select:focus-visible {
+      outline: none;
+    }
+
+    .change-password-content {
+      display: flex;
+      gap: 64px;
+      max-width: 592px;
+      width: 100%;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+
+    .change-password-content form {
+      display: flex;
+      width: 100%;
+      max-width: 300px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .change-password-error-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .change-password-error-container h1 {
+      color: #374151;
+      margin-bottom: 16px;
+    }
+
+    .text-heading-h3 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 30px;
+    }
+
+    .text-body-b3 {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      color: #374151;
+    }
+
+    .text-body-b1 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+
+    .btn-1-primary {
+      background-color: #163651;
+    }
+
+    @media (max-width: 480px) {
+      .setting-profile-image {
+        width: 64px;
+        height: 64px;
+      }
+
+      .setting-profile-details h3 {
+        font-size: 16px;
+      }
+
+      .setting-profile-details span {
+        font-size: 12px;
+      }
+    }
+
+    .setting-tab-content {
+      padding: 0;
+      width: 100%;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/edit-profile.js"></script>
+  <script src="js/password-validation.js"></script>
 </body>
 
 </html>
