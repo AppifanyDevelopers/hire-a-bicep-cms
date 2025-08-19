@@ -1,4 +1,3 @@
-// Custom plugin for vertical dotted line on hover
 const verticalLinePlugin = {
   id: "verticalLine",
   afterDatasetsDraw: function (chart) {
@@ -22,10 +21,8 @@ const verticalLinePlugin = {
   },
 };
 
-// Register the plugin
 Chart.register(verticalLinePlugin);
 
-// Revenue Chart
 const revenueCtx = document.getElementById("revenueChart").getContext("2d");
 const revenueChart = new Chart(revenueCtx, {
   type: "line",
@@ -128,7 +125,6 @@ const revenueChart = new Chart(revenueCtx, {
   },
 });
 
-// Dispute Chart
 const disputeCtx = document.getElementById("disputeChart").getContext("2d");
 const disputeChart = new Chart(disputeCtx, {
   type: "doughnut",
@@ -152,7 +148,12 @@ const disputeChart = new Chart(disputeCtx, {
       legend: { display: false },
       tooltip: {
         enabled: true,
-        animation: false,
+        backgroundColor: "rgba(255, 255, 255, 0.95)",
+        titleColor: "#2c3e50",
+        bodyColor: "#2c3e50",
+        borderColor: "#e9ecef",
+        borderWidth: 1,
+        cornerRadius: 8,
         callbacks: {
           label: function (context) {
             return context.label + ": " + context.parsed + "%";
@@ -160,7 +161,12 @@ const disputeChart = new Chart(disputeCtx, {
         },
       },
     },
-    animation: { duration: 0 },
+    interaction: {
+      mode: null, // Disable all interaction modes to prevent hover interference
+    },
+    animation: {
+      duration: 0,
+    },
   },
   plugins: [
     {
