@@ -9,12 +9,22 @@
   <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    .calendar-container {
-      position: absolute;
-      left: 0;
-      right: auto;
-      z-index: 1000;
-    }
+   .calendar-container {
+  position: absolute;
+  left: auto;
+  right: 0;
+  z-index: 1000;
+}
+
+/* On small screens, center it */
+@media (max-width: 576px) {
+  .calendar-container {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -94,6 +104,7 @@
                     </div>
                     <div class="days-panel" id="daysGrid"></div>
                   </div>
+                  <hr style="border:1px solid #e9ecef;opacity:1;margin:0;">
                   <button class="apply-selection-action" onclick="confirmDateSelection()">Apply</button>
                 </div>
               </div>

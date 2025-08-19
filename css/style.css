@@ -214,6 +214,7 @@ body {
   color: #2c3a4d;
   font-size: 14px;
   font-weight: 400;
+  line-height: 22pxl;
 }
 .body-small {
   font-size: 14px;
@@ -739,7 +740,20 @@ tbody tr td:first-child {
   opacity: 1;
   transition: background-color 0.3s ease;
 }
-
+.view-details-btn {
+  padding: 6px 12px;
+  background-color: #4d70cf;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 16px;
+  border: none;
+}
+.view-details-btn:hover {
+  background-color: #4d70cf;
+  color: white;
+  text-decoration: none;
+}
 .accept-btn,
 .reject-btn {
   width: 86px;
@@ -794,10 +808,10 @@ tbody tr td:first-child {
   position: absolute;
   z-index: 999;
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 16px 32px;
+  padding: 13px 22px;
   width: 188px;
   height: auto;
   margin-top: 8px;
@@ -1229,9 +1243,9 @@ tbody tr td:first-child {
 }
 .date-picker-widget {
   background: white;
-  border-radius: 16px;
+  border-radius: 26px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  max-width: 320px;
+  max-width: 387px;
   margin: 0 auto;
   overflow: hidden;
   display: none;

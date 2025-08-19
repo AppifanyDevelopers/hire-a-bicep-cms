@@ -103,7 +103,7 @@
                           <img src="/img/threedot.svg" alt="More actions" style="transform: rotate(90deg);" />
                         </button>
                       
-                        <div class="actions-modal">
+                        <div class="actions-modal mt-2">
                           <div class="modal-content">
                             <a class="dropdown-item" href="block-user.html">Block User</a>
                             <button class="dropdown-item " >Delete User</button>
@@ -112,31 +112,37 @@
                       </div>
                       
                       <script>
-                        function toggleModal(event) {
-                          event.stopPropagation();
-                          const button = event.currentTarget;
-                          const wrapper = button.closest('.d-flex');
-                          const modal = wrapper.querySelector('.actions-modal');
-                      
-                          // Hide all other modals
-                          document.querySelectorAll('.actions-modal').forEach(m => {
-                            if (m !== modal) m.style.display = 'none';
-                          });
-                      
-                          // Toggle current modal
-                          modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-                        }
-                      
-                        document.addEventListener('click', function (e) {
-                          document.querySelectorAll('.actions-modal').forEach(modal => {
-                            const wrapper = modal.closest('.d-flex');
-                            const button = wrapper.querySelector('.btn-actions');
-                      
-                            if (!modal.contains(e.target) && !button.contains(e.target)) {
-                              modal.style.display = 'none';
-                            }
-                          });
-                        });
+                       let currentModal = null;
+
+function toggleModal(event) {
+  event.stopPropagation();
+  const button = event.currentTarget;
+  const wrapper = button.closest('.d-flex');
+  const modal = wrapper.querySelector('.actions-modal');
+
+  // If this modal is already open, close it
+  if (currentModal === modal) {
+    modal.style.display = 'none';
+    currentModal = null;
+    return;
+  }
+
+  // Hide all other modals
+  document.querySelectorAll('.actions-modal').forEach(m => {
+    if (m !== modal) m.style.display = 'none';
+  });
+
+  // Show the current modal
+  modal.style.display = 'block';
+  currentModal = modal;
+}
+
+document.addEventListener('click', function (e) {
+  if (currentModal && !currentModal.contains(e.target) && !e.target.closest('.btn-actions')) {
+    currentModal.style.display = 'none';
+    currentModal = null;
+  }
+});
                       </script>
                       
                   </div>

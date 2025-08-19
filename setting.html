@@ -76,7 +76,7 @@
                     <img class="setting-profile-image" src="img/profile-image.jpeg" />
                     <div class="setting-profile-details">
                       <h3 class="text-body-b2 mb-0">James Goldie</h3>
-                      <span class="text-body-b3">Doctor</span>
+                      <span class="text-body-b3">Administrator</span>
                     </div>
                   </div>
                   <div class="d-flex align-items-center gap-4">
@@ -103,18 +103,7 @@
                         <h4 class="text-body-b3 mb-0">jamesgoldie@gmail.com</h4>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="setting-profile-information">
-                        <span class="text-body-b3">Mobile Number</span>
-                        <h4 class="text-body-b3 mb-0">045627892</h4>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="setting-profile-information">
-                        <span class="text-body-b3">Occupation</span>
-                        <h4 class="text-body-b3 mb-0">Doctor</h4>
-                      </div>
-                    </div>
+                  
                   </div>
                   <div>
                     <button class="btn-1 btn-1-primary text-body-b1 mt-4 mb-4" style="width: 240px">Edit</button>
@@ -125,28 +114,17 @@
                     <div class="row g-3 g-sm-4">
                       <div class="col-md-6">
                         <div class="textfield-1">
-                          <input type="text" class="text-body-b2" placeholder="" value="Input" />
+                          <input type="text" class="text-body-b2" placeholder="" value="James Goldie" />
                           <label class="text-body-b2">Name</label>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="textfield-1">
-                          <input type="email" class="text-body-b2" placeholder="" value="Input" />
+                          <input type="email" class="text-body-b2" placeholder="" value="jamesgoldie@gmail.com" />
                           <label class="text-body-b2">Email</label>
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="textfield-1">
-                          <input type="text" class="text-body-b2" placeholder="" value="Input" />
-                          <label class="text-body-b2">Mobile number</label>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="textfield-1">
-                          <input type="text" class="text-body-b2" placeholder="" value="Input" />
-                          <label class="text-body-b2">Occupation</label>
-                        </div>
-                      </div>
+                    
                     </div>
                     <div class="d-flex gap-4 mt-4">
                       <button class="btn-1 btn-1-primary text-body-b1" style="width: 240px">Save</button>
@@ -202,27 +180,26 @@
 
     .setting-custom-tabs .nav-link {
       flex-direction: row;
-      gap: 8px; /* Adjust icon and text spacing */
+      gap: 8px; 
       padding: 8px 16px;
       white-space: nowrap;
     }
 
     .setting-custom-tabs .nav-link span {
-      display: inline; /* Ensure text is visible on large screens */
+      display: inline; 
     }
 
-    /* Hide span text on small screens */
+  
     @media (max-width: 768px) {
       .setting-custom-tabs .nav-link span {
-        display: none; /* Hide "Profile" and "Change Password" on small screens */
+        display: none; 
       }
     }
 
-    /* Ensure content fits within card on small screens */
     @media (max-width: 768px) {
       .setting-card {
-        height: auto; /* Allow card to adjust height */
-        overflow-y: auto; /* Enable scrolling if content overflows */
+        height: auto; 
+        overflow-y: auto; 
         padding: 16px;
       }
 
@@ -232,7 +209,7 @@
       }
 
       .profile-container {
-        height: auto; /* Allow content to adjust */
+        height: auto;
         padding: 0;
       }
 
@@ -372,7 +349,7 @@
     .setting-custom-tabs .nav-link.active {
       background: none;
       border: none;
-      color: var(--Primary-500, #008cff);
+      color: var(--Primary-500, #2f5e87);
       position: relative;
     }
 
@@ -390,7 +367,7 @@
     .setting-vertical-line {
       width: 1px;
       height: 100%;
-      border-right: 1px solid var(--Bg-Border, #1b2c3a);
+      border-right: 1px solid var(--Bg-Border, #ccc);
       opacity: 1;
       margin: 0px 32px 0px 24px;
     }
@@ -435,7 +412,7 @@
     }
 
     .setting-profile-horizontal-line {
-      border-top: 2px solid var(--Bg-Border, #374151);
+      border-top: 2px solid var(--Bg-Border, #ccc);
       opacity: 1;
       margin: 32px 0px;
     }
@@ -717,9 +694,7 @@
       border: none;
     }
 
-    .btn-1-primary:hover {
-      background: var(--Primary-400, #33a3ff);
-    }
+  
 
     .btn-1-primary:disabled {
       background: var(--Primary-200, #99d1ff);

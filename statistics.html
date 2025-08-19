@@ -70,7 +70,25 @@
               <button class="filter-select"  onclick="toggleCalendarWidget()">
                 Date
               </button>
-              <div class="calendar-container" style="position: absolute; right: 0; top: 100%;">
+              <style>
+                .calendar-container {
+               position: absolute;
+               left: auto;
+               right: 0;
+               z-index: 1000;
+             }
+             
+             /* On small screens, center it */
+             @media (max-width: 576px) {
+               .calendar-container {
+                left: 100%;
+                 right: auto;
+                 transform: translateX(-50%);
+               }
+             }
+             
+               </style>
+              <div class="calendar-container">
                 <div class="date-picker-widget" id="calendarWidget">
                     <div class="calendar-navigation-header">
                         <div class="month-year-display" id="monthYearLabel">February 2019</div>

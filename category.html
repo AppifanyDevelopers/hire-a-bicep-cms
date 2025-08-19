@@ -213,7 +213,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#editcategoryModal">Edit</button>
-                        <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#deletecategoryModal">Delete</button>
+                        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deletecategoryModal">Delete</button>
                       </div>
                     
                     </div>
@@ -301,7 +301,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item ">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -318,7 +318,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item ">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -335,7 +335,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -352,7 +352,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item ">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -369,7 +369,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -386,7 +386,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item ">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -403,7 +403,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item ">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -420,7 +420,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item ">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -437,7 +437,7 @@
                     <div class="actions-modal" style="display: none;">
                       <div class="modal-content">
                         <button class="dropdown-item">Edit</button>
-                        <button class="dropdown-item text-danger">Delete</button>
+                        <button class="dropdown-item ">Delete</button>
                       </div>
                     </div>
                   </td>
@@ -470,31 +470,28 @@
       });
     });
 
-    // Toggle actions modal dropdown
     function toggleModal(event) {
-      event.stopPropagation();
-      const button = event.currentTarget;
-      const td = button.closest('td');
-      const modal = td.querySelector('.actions-modal');
+  event.stopPropagation();
+  const button = event.currentTarget;
+  const td = button.closest('td');
+  const modal = td.querySelector('.actions-modal');
 
-      // Hide all other modals
-      document.querySelectorAll('.actions-modal').forEach(m => {
-        if (m !== modal) m.style.display = 'none';
-      });
+  // Hide all other modals
+  document.querySelectorAll('.actions-modal').forEach(m => {
+    if (m !== modal) m.style.display = 'none';
+  });
 
-      // Toggle current modal
-      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-    }
-
-    // Click outside to close any open modal
-    document.addEventListener('click', function (e) {
-      document.querySelectorAll('.actions-modal').forEach(modal => {
-        if (!modal.contains(e.target) && !e.target.closest('.btn-actions')) {
-          modal.style.display = 'none';
-        }
-      });
-    });
-
+  // Toggle current modal and position it
+  if (modal.style.display === 'block') {
+    modal.style.display = 'none';
+  } else {
+    modal.style.display = 'block';
+    // Position the modal to the left of the button
+    const buttonRect = button.getBoundingClientRect();
+    modal.style.left = buttonRect.left - modal.offsetWidth + button.offsetWidth + 'px';
+    modal.style.top = buttonRect.bottom + window.scrollY + 'px';
+  }
+}
     document.querySelector('.btn-add-bicep').addEventListener('click', function() {
       console.log('Add Category clicked');
     });
