@@ -66,6 +66,186 @@
       box-shadow: none !important;
       outline: none !important;
     }
+
+    /* Responsive fixes for filter buttons */
+
+    /* Base responsive adjustments */
+    @media (max-width: 1399.98px) {
+      .dropdown-filter button {
+        font-size: 14px !important;
+        padding: 8px 12px !important;
+      }
+
+      .dropdown-filter button img {
+        padding-left: 8px !important;
+      }
+    }
+
+    /* Large screens and below */
+    @media (max-width: 1199.98px) {
+      .dropdown-filter {
+        margin-right: 8px;
+      }
+
+      .dropdown-filter button {
+        font-size: 13px !important;
+        padding: 6px 10px !important;
+        white-space: nowrap;
+      }
+
+      .dropdown-filter button img {
+        padding-left: 6px !important;
+      }
+
+      /* Reduce gap between filter elements */
+      .gap-3 {
+        gap: 0.75rem !important;
+      }
+    }
+
+    /* Medium screens and below */
+    @media (max-width: 991.98px) {
+      .dropdown-filter button {
+        font-size: 12px !important;
+        padding: 5px 8px !important;
+      }
+
+      .dropdown-filter button img {
+        padding-left: 4px !important;
+      }
+
+      .gap-3 {
+        gap: 0.5rem !important;
+      }
+
+      /* Stack filter elements on smaller screens */
+      .d-flex.justify-content-xxl-end.pe-xxl-5.align-items-xxl-center.gap-3 {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        width: 120px;
+
+      }
+
+      .dropdown-filter {
+        margin-bottom: 8px;
+      }
+
+      .new-div {
+        width: 134px;
+
+      }
+
+    }
+
+    /* Small screens and below */
+    @media (max-width: 767.98px) {
+      .dropdown-filter button {
+        font-size: 11px !important;
+        padding: 4px 6px !important;
+        min-width: auto;
+      }
+
+      .dropdown-filter button img {
+        padding-left: 2px !important;
+        width: 12px;
+      }
+
+      /* Stack everything vertically on mobile */
+      .d-flex.justify-content-xxl-end.pe-xxl-5.align-items-xxl-center.gap-3 {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 8px !important;
+      }
+
+      .dropdown-filter {
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      .dropdown-filter button {
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+      }
+
+      /* Filter by text adjustment */
+      .d-flex.justify-content-center.align-items-center.pe-xxl-3 {
+        justify-content: center !important;
+        margin-bottom: 8px;
+      }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 575.98px) {
+      .dropdown-filter button {
+        font-size: 10px !important;
+        padding: 3px 5px !important;
+      }
+
+      .dropdown-filter button img {
+        width: 10px;
+      }
+
+      /* Ensure container doesn't overflow */
+      .row.border-bottom.mx-auto.p-2 {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+      }
+    }
+
+    /* Specific fixes for the second row of buttons */
+    @media (max-width: 991.98px) {
+      .col-xxl-2.col-xl-4.col-lg-3.col-md-3.col-sm-12.col-xs-12 .d-flex {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        gap: 8px;
+
+      }
+
+      .col-xxl-2.col-xl-4.col-lg-3.col-md-3.col-sm-12.col-xs-12 .dropdown-filter {
+        flex: 1;
+        min-width: 45%;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .col-xxl-2.col-xl-4.col-lg-3.col-md-3.col-sm-12.col-xs-12 .dropdown-filter {
+        flex: 1;
+        min-width: 100%;
+        margin-bottom: 8px;
+
+      }
+    }
+
+    /* Dropdown menu responsiveness */
+    @media (max-width: 767.98px) {
+      .dropdown-menu {
+        width: 100% !important;
+        min-width: auto !important;
+      }
+    }
+
+    /* Prevent horizontal scrolling */
+    .row {
+      overflow-x: hidden;
+    }
+
+    /* Additional utility classes for better responsive behavior */
+    .dropdown-toggle::after {
+      display: none !important;
+      /* Hide default bootstrap dropdown arrow since you have custom image */
+    }
+
+    /* Ensure buttons don't shrink too much */
+    .dropdown-filter button {
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   </style>
 </head>
 
@@ -215,83 +395,72 @@
         <!-- bottom section -->
         <div class="container-fluid overflow-hidden mt-4">
           <div class="border rounded-4 bg-white usermanager-shadow">
+
+
             <div class="row border-bottom mx-auto p-2">
-              <div class="d-xxl-block d-none d-xxl-flex justify-content-xxl-between align-items-xxl-center pt-xxl-3">
-                <div>
-                  <span class="fs-xxl-18 fs-xl-18 fs-lg-18 fs-md-16 fw-bolder px-2"
-                    style="font-size: 20px; font-weight: 600; line-height: 140%;">Sent
-                    Notifications</span>
-                </div>
+              <div class="">
+
 
                 <!--  -->
-                <div>
-                  <div class="d-flex justify-content-xxl-end pe-xxl-5 align-items-xxl-center gap-3">
-                    <div class="d-flex justify-content-center align-items-center pe-xxl-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+
+                  <!-- LEFT SIDE -->
+                  <div>
+                    <span class="fs-xxl-18 fs-xl-18 fs-lg-18 fs-md-16 fw-bolder"
+                      style="font-size: 20px; font-weight: 600; line-height: 140%;">
+                      Sent Notifications
+                    </span>
+                  </div>
+
+                  <!-- RIGHT SIDE -->
+                  <div class="d-flex flex-wrap justify-content-end align-items-center gap-3 new-div">
+                    <div class="d-flex align-items-center">
                       <img src="./img/svg/filterIcon.svg" alt="Filter icon" width="16" class="me-2 align-middle" />
-                      <p class="mb-0 pe-4 pe-md-0">Filter by</p>
+                      <p class="mb-0">Filter by</p>
                     </div>
-                    <!--  -->
+
                     <div class="dropdown-filter">
-                      <button
-                        class="dropdown-toggle px-xxl-3 px-lg-3 px-md-3 px-3 text-black-80 bg-lighter-gray py-xxl-2 rounded-4"
+                      <button class="dropdown-toggle px-3 text-black-80 bg-lighter-gray py-2 rounded-4"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Category
-                        <img src="./img/svg/down.svg" alt="" class="ps-5 ps-xxl-4 ps-xl-5 ps-lg-3 ps-md-0" />
+                        <img src="./img/svg/down.svg" alt="" class="ps-3" />
                       </button>
                       <ul class="dropdown-menu" style="width: 210px;">
-                        <li>
-                          <a class="dropdown-item" href="#">Admin</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Solo</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Solo</a>
-                        </li>
+                        <li><a class="dropdown-item" href="#">Admin</a></li>
+                        <li><a class="dropdown-item" href="#">Solo</a></li>
+                        <li><a class="dropdown-item" href="#">Solo</a></li>
                       </ul>
                     </div>
 
-                    <div class="dropdown-filter pe-1 d-flex">
-                      <button
-                        class="dropdown-toggle px-xxl-3 px-lg-3 px-md-3 px-3 text-black-80 bg-lighter-gray py-xxl-2 p-lg-2 p-md-2 p-2 rounded-4"
+                    <div class="dropdown-filter">
+                      <button class="dropdown-toggle px-3 text-black-80 bg-lighter-gray py-2 rounded-4"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Select Events
-                        <img src="./img/svg/down.svg" alt="" class="ps-5 ps-xxl-5 ps-xl-5 ps-lg-5 ps-md-0" />
+                        <img src="./img/svg/down.svg" alt="" class="ps-3" />
                       </button>
                       <ul class="dropdown-menu" style="width: 210px;">
-                        <li>
-                          <a class="dropdown-item" href="#">Location</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Interest</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Name</a>
-                        </li>
+                        <li><a class="dropdown-item" href="#">Location</a></li>
+                        <li><a class="dropdown-item" href="#">Interest</a></li>
+                        <li><a class="dropdown-item" href="#">Name</a></li>
                       </ul>
                     </div>
-                    <!--  -->
+
                     <div class="dropdown-filter">
-                      <button
-                        class="dropdown-toggle px-xxl-3 px-lg-3 px-md-3 px-3 text-black-80 bg-lighter-gray py-xxl-2 p-lg-2 p-md-2 p-2 rounded-4"
+                      <button class="dropdown-toggle px-3 text-black-80 bg-lighter-gray py-2 rounded-4"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Month
-                        <img src="./img/svg/down.svg" alt="" class="ps-5 ps-xxl-5 ps-xl-5 ps-lg-5 ps-md-0" />
+                        <img src="./img/svg/down.svg" alt="" class="ps-3" />
                       </button>
                       <ul class="dropdown-menu" style="width: 210px;">
-                        <li>
-                          <a class="dropdown-item" href="#">Jan</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Feb</a>
-                        </li>
-                        <li>
-                          <a class="dropdown-item" href="#">Mar</a>
-                        </li>
+                        <li><a class="dropdown-item" href="#">Jan</a></li>
+                        <li><a class="dropdown-item" href="#">Feb</a></li>
+                        <li><a class="dropdown-item" href="#">Mar</a></li>
                       </ul>
                     </div>
                   </div>
+
                 </div>
+
               </div>
 
               <!--  -->
@@ -332,7 +501,7 @@
                 </div>
               </div> -->
               <!--  -->
-              <div class="col-xxl-2 col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12 mt-md-3 mt-3">
+              <!-- <div class="col-xxl-2 col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12 mt-md-3 mt-3">
                 <div
                   class="d-flex justify-content-between justify-content-md-end justify-content-xxl-end gap-xxl-2 pe-xxl-0 pe-md-0 pe-xl-0 pe-xxl-0 pe-0 ps-0 d-xxl-none">
                   <div class="dropdown-filter pe-1 d-flex">
@@ -354,7 +523,6 @@
                       </li>
                     </ul>
                   </div>
-                  <!--  -->
                   <div class="dropdown-filter">
                     <button
                       class="dropdown-toggle px-xxl-3 px-lg-3 px-md-3 px-3 text-black-80 bg-lighter-gray p-xxl-3 p-lg-2 p-md-2 p-2 rounded-4"
@@ -375,8 +543,7 @@
                     </ul>
                   </div>
                 </div>
-                <!--  -->
-              </div>
+              </div> -->
             </div>
 
             <!--  -->
