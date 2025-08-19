@@ -216,6 +216,24 @@ body {
   font-weight: 400;
   line-height: 22pxl;
 }
+.title-small-semibold {
+  color: #1a2637;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+}
+.text-small-semibold {
+  color: #1a2637;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 140%;
+}
+.body-medium-semibold {
+  color: #515c6d;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
+}
 .body-small {
   font-size: 14px;
   font-weight: 500;
@@ -260,6 +278,7 @@ body {
 hr.divider {
   border-color: #e2e8f0;
   margin: 24px 0;
+  opacity: 1;
 }
 
 .editor-container {
@@ -405,16 +424,15 @@ hr.divider {
 }
 
 .faq-item {
-  border: none;
-  border-radius: 8px;
+  border: 1px solid #f3f4f6;
+  border-radius: 16px;
   margin-bottom: 12px;
   background: #f3f4f6;
   overflow: hidden;
 }
 
 .faq-item.expanded {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border: 1px solid #f6bc0e !important;
 }
 
 .faq-header {

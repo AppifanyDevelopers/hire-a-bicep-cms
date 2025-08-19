@@ -40,18 +40,37 @@
         <img class="sidebar-toggle" id="sidebarToggle" src="img/sidebar-toggle.svg" alt="Toggle Sidebar" />
         <span>Static Content</span>
       </header>
+<style>
+  .ck-content .text-small-semibold {
+    color: #1a2637;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 140%;
+}
 
+.ck-content .body-medium-semibold {
+  color: #515c6d;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
+}
+
+</style>
       <div class="main-content">
-        <section class="content-card">
-          <h2>Terms & Condition</h2>
+        <section class="content-card" style="border:1px solid #F6F8FC;">
+          <h2 class="text-small-semibold">Terms & Condition</h2>
           <div id="termsContent">
-            <p class="strong">1. Acceptance of Terms</p>
-            <p>This is placeholder text only, intended for visual demonstration purposes only...</p>
-            <p class="strong">2. Eligibility</p>
-            <p>This is placeholder text only...</p>
+            <p class="text-small-semibold">1. Acceptance of Terms</p>
+            <p class="body-medium-semibold">This is placeholder text only, intended for visual demonstration purposes only.
+                     The content here is not meant to convey any specific information but to <br>  illustrate how text will appear in the final design.</p>
+            <p class="text-small-semibold">2. Eligibility</p>
+            <p class="body-medium-semibold">This is placeholder text only, intended for visual demonstration purposes only. The content here is not meant to convey any specific information but to <br>   illustrate how text will appear in the final design.</p>
+          
+            <p class="text-small-semibold">3. Account Registration</p>
+            <p class="body-medium-semibold">This is placeholder text only, intended for visual demonstration purposes only. The content here is not meant to convey any specific information but to <br> illustrate how text will appear in the final design.</p>
           </div>
           <button class="btn-edit" onclick="editSection('terms')">Edit</button>
-          <div class="editor-container" id="termsEditorContainer">
+          <div class="editor-container" id="termsEditorContainer" style="width:100%;max-width:814px;">
             <textarea id="termsEditor"></textarea>
             <div class="editor-btns">
               <button class="btn save-btn" onclick="saveSection('terms')">Save</button>
@@ -61,19 +80,22 @@
 
           <hr class="divider" />
 
-          <h3>Privacy Policy</h3>
+          <h2 class="text-small-semibold">Privacy Policy</h2>
           <div id="privacyContent">
-            <p class="strong">Information We Collect</p>
+            <p class="text-small-semibold">Information We Collect</p>
             <ul>
-              <li>This is placeholder text only...</li>
+              <li class="body-medium-semibold">This is placeholder text only, intended for visual demonstration purposes only.</li>
+            <li class="body-medium-semibold">The content here is not meant to convey any specific information but to illustrate how text will appear in the final design.</li>
             </ul>
-            <p class="strong">How We Use Your Information</p>
+            <p class="text-small-semibold">How We Use Your Information</p>
             <ul>
-              <li>This is placeholder text only...</li>
+              <li class="body-medium-semibold">This is placeholder text only, intended for visual demonstration purposes only.</li>
+            <li class="body-medium-semibold">The content here is not meant to convey any specific information but to illustrate how text will appear in the final design.</li>
             </ul>
+            <p class="body-medium-semibold">This is placeholder text only, intended for visual demonstration purposes only. The content here is not meant to convey any specific <br> information but to illustrate how text will appear in the final design. Please note that this text will be replaced with the approved content <br> at the final stage. For now, it serves to provide a general idea of layout and formatting.</p>
           </div>
           <button class="btn-edit" onclick="editSection('privacy')">Edit</button>
-          <div class="editor-container" id="privacyEditorContainer">
+          <div class="editor-container" id="privacyEditorContainer"  style="width:100%;max-width:814px;">
             <textarea id="privacyEditor"></textarea>
             <div class="editor-btns">
               <button class="btn save-btn" onclick="saveSection('privacy')">Save</button>
