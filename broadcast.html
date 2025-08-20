@@ -10,6 +10,48 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
   <style>
+    .dropdown-menu{
+      width:100%;
+      max-width:210px;
+    }
+    /* Small screens and below (max-width: 768px) */
+@media (max-width: 768px) {
+  .new-div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important; /* 4px gap between elements */
+    width: 100% !important; /* Full width for the container */
+  }
+
+  .new-div .d-flex.align-items-center {
+    width: 100% !important; /* Full width for Filter by */
+    margin-bottom: 4px; /* Ensure spacing */
+  }
+
+  .new-div .dropdown-filter {
+    width: 100% !important; /* Full width for dropdowns */
+    margin-bottom: 0 !important; /* Remove extra bottom margin */
+  }
+
+  .new-div .dropdown-filter button {
+    width: 100% !important; /* Full width for buttons */
+    font-size: 11px !important;
+    padding: 4px 6px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .new-div .dropdown-filter button img {
+    padding-left: 2px !important;
+    width: 12px;
+  }
+
+  .dropdown-menu {
+    width: 100% !important;
+    min-width: auto !important;
+  }
+}
     .dropdown-menu .dropdown-item.active,
     .dropdown-menu .dropdown-item:active {
       background-color: #163651 !important;
@@ -228,7 +270,6 @@
     /* Dropdown menu responsiveness */
     @media (max-width: 767.98px) {
       .dropdown-menu {
-        width: 100% !important;
         min-width: auto !important;
       }
     }
@@ -310,7 +351,7 @@
                     <span>State</span>
                     <img src="./img/arrow-down1.svg" alt="" class="ps-5" />
                   </button>
-                  <ul class="dropdown-menu" style="width: 210px;">
+                  <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Queensland</a></li>
                     <li><a class="dropdown-item" href="#">Tasmania</a></li>
                     <li><a class="dropdown-item" href="#">New South Wales</a></li>
@@ -325,7 +366,7 @@
                     <span>User Type</span>
                     <img src="./img/arrow-down1.svg" alt="" class="ps-5" />
                   </button>
-                  <ul class="dropdown-menu" style="width: 210px;">
+                  <ul class="dropdown-menu">
                     <!-- <li><a class="dropdown-item" href="#">Admin</a></li> -->
                     <li><a class="dropdown-item" href="#">Customer</a></li>
                     <li><a class="dropdown-item" href="#">Viewer</a></li>
@@ -342,7 +383,7 @@
                   <span>Category</span>
                   <img src="./img/arrow-down1.svg" alt="" class="ps-5" />
                 </button>
-                <ul class="dropdown-menu" style="width: 210px;">
+                <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Hiking</a></li>
                   <li><a class="dropdown-item" href="#">Reading</a></li>
                   <li><a class="dropdown-item" href="#">Football</a></li>
@@ -430,7 +471,7 @@
                         Category
                         <img src="./img/svg/down.svg" alt="" class="ps-3" />
                       </button>
-                      <ul class="dropdown-menu" style="width: 210px;">
+                      <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Admin</a></li>
                         <li><a class="dropdown-item" href="#">Solo</a></li>
                         <!-- <li><a class="dropdown-item" href="#">Solo</a></li> -->
@@ -443,7 +484,7 @@
                         Select Events
                         <img src="./img/svg/down.svg" alt="" class="ps-3" />
                       </button>
-                      <ul class="dropdown-menu" style="width: 210px;">
+                      <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Location</a></li>
                         <li><a class="dropdown-item" href="#">Interest</a></li>
                         <li><a class="dropdown-item" href="#">Name</a></li>
@@ -456,7 +497,7 @@
                         Month
                         <img src="./img/svg/down.svg" alt="" class="ps-3" />
                       </button>
-                      <ul class="dropdown-menu" style="width: 210px;">
+                      <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Jan</a></li>
                         <li><a class="dropdown-item" href="#">Feb</a></li>
                         <li><a class="dropdown-item" href="#">Mar</a></li>
