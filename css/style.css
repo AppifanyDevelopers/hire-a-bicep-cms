@@ -1168,6 +1168,7 @@ tbody tr td:first-child {
 .dashboard-search-container {
   position: relative;
   display: inline-block;
+  width: 100%;
 }
 
 .dashboard-search-input {
@@ -1177,7 +1178,6 @@ tbody tr td:first-child {
   border: 1px solid #e7eae9;
   height: 48px;
   width: 100%;
-  max-width: 238px;
   box-sizing: border-box;
 }
 
@@ -1236,6 +1236,9 @@ tbody tr td:first-child {
 }
 
 @media (max-width: 768px) {
+  .dash-container {
+    width: 100%;
+  }
   .dashboard-content-row {
     grid-template-columns: 1fr;
   }
@@ -1276,9 +1279,7 @@ tbody tr td:first-child {
     gap: 12px;
     justify-content: start;
   }
-  .dashboard-search-input {
-    max-width: 290px;
-  }
+
   .chart-container,
   .pending-approvals,
   .performance-section {
