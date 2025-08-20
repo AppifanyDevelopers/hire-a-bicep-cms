@@ -29,7 +29,9 @@ body {
 .sidebar.minimized {
   width: 60px;
 }
-
+.sidebar.minimized nav a img {
+  margin: 0px !important;
+}
 .sidebar .logo {
   display: block;
   margin: 24px auto;
@@ -743,6 +745,9 @@ tbody tr td:first-child {
   font-weight: 600;
 }
 @media (max-width: 768px) {
+  .main-content {
+    padding: 0px;
+  }
   .d-flex.flex-wrap .dropdown-filter {
     width: 100% !important;
   }

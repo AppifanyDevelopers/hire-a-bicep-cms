@@ -185,22 +185,6 @@ function showNextMonth() {
   renderCalendar();
 }
 
-function confirmDateSelection() {
-  if (startOfRange && endOfRange) {
-    updateDisplayDateText();
-    toggleCalendarWidget();
-    alert(
-      `Applied date range: ${startOfRange.toDateString()} to ${endOfRange.toDateString()}`
-    );
-  } else if (startOfRange) {
-    updateDisplayDateText();
-    toggleCalendarWidget();
-    alert(`Applied date: ${startOfRange.toDateString()}`);
-  } else {
-    alert("Please select a date range first");
-  }
-}
-
 document.addEventListener("click", function (event) {
   const widget = document.getElementById("calendarWidget");
   const toggleButton = document.querySelector(".filter-select");

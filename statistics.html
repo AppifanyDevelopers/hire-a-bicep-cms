@@ -114,7 +114,7 @@
                         <div class="days-panel" id="daysGrid"></div>
                     </div>
                     
-                    <button class="apply-selection-action" onclick="confirmDateSelection()">Apply</button>
+                    <button class="apply-selection-action" onclick="toggleCalendarWidget()">Apply</button>
                 </div>
              
             </div>
@@ -152,7 +152,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
               <div class="stat-card">
-                <div class="stat-label">Avg. Resp Revenue</div>
+                <div class="stat-label">Avg. Bicep Revenue</div>
                 <div class="stat-header">
                   <div class="stat-number">$260</div>
                   <div class="stat-change negative">-1%</div>
@@ -261,6 +261,12 @@
             .legend-color {
               width: 12px; 
               height: 12px; 
+              border-radius: 2px; 
+              flex-shrink: 0;
+            }
+            .legend-color-dispute {
+              width: 15px; 
+              height: 15px; 
               border-radius: 5px; 
               flex-shrink: 0;
             }
@@ -305,15 +311,15 @@
                   </div>
                   <div class="chart-gender-legend ">
                     <div class="legend-item">
-                      <div class="legend-color legend-female"></div>
+                      <div class="legend-color-dispute legend-female"></div>
                       <span>Female 60%</span>
                     </div>
                     <div class="legend-item">
-                      <div class="legend-color legend-male"></div>
+                      <div class="legend-color-dispute legend-male"></div>
                       <span>Male 30%</span>
                     </div>
                     <div class="legend-item">
-                      <div class="legend-color legend-other"></div>
+                      <div class="legend-color-dispute legend-other"></div>
                       <span>Other 10%</span>
                     </div>
                   </div>

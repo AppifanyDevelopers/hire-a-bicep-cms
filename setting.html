@@ -103,7 +103,6 @@
                         <h4 class="text-body-b3 mb-0">jamesgoldie@gmail.com</h4>
                       </div>
                     </div>
-                  
                   </div>
                   <div>
                     <button class="btn-1 btn-1-primary text-body-b1 mt-4 mb-4" style="width: 240px">Edit</button>
@@ -124,7 +123,6 @@
                           <label class="text-body-b2">Email</label>
                         </div>
                       </div>
-                    
                     </div>
                     <div class="d-flex gap-4 mt-4">
                       <button class="btn-1 btn-1-primary text-body-b1" style="width: 240px">Save</button>
@@ -189,7 +187,6 @@
       display: inline; 
     }
 
-  
     @media (max-width: 768px) {
       .setting-custom-tabs .nav-link span {
         display: none; 
@@ -215,7 +212,7 @@
 
       .setting-profile-information-container {
         max-width: 100%;
-        flex-grow: 0; /* Prevent stretching */
+        flex-grow: 0;
       }
 
       .row.g-3.g-sm-4 {
@@ -241,6 +238,40 @@
       .change-password-error-container {
         text-align: center;
         margin-top: 16px;
+      }
+
+      /* Smaller buttons on small screens */
+      .btn-1 {
+        height: 40px;
+        padding: 4px 24px;
+        border-radius: 20px;
+        font-size: 14px;
+      }
+
+      .btn-1-primary, .btn-1-basic {
+        max-width: 150px;
+      }
+
+      /* Smaller input fields on small screens */
+      .textfield-1 input {
+        height: 36px;
+        font-size: 14px;
+        padding: 8px 12px;
+        width: 100%;
+      }
+
+      .textfield-1 label {
+        top: 8px;
+        left: 12px;
+        font-size: 14px;
+      }
+
+      .textfield-1 input:focus ~ label,
+      .textfield-1 input:not(:placeholder-shown) ~ label {
+        top: -6px;
+        left: 10px;
+        font-size: 10px;
+        padding: 0 3px;
       }
     }
 
@@ -355,7 +386,6 @@
 
     .setting-active-state {
       position: absolute;
-  
       left: -33px;
       display: none;
     }
@@ -560,7 +590,7 @@
 
     .btn-1 {
       height: 52px;
-      padding: 6px 32px 6px 32px;
+      padding: 6px 32px;
       border-radius: 24px;
       gap: 10px;
       display: flex;
@@ -576,9 +606,9 @@
 
     .btn-3 {
       height: 36px;
-      padding: 6px 32px 6px 32px;
-      gap: 10px;
+      padding: 6px 32px;
       border-radius: 24px;
+      gap: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -591,6 +621,9 @@
     }
 
     @media (max-width: 768px) {
+      .main-content {
+        padding: 8px;
+      }
       .setting-content {
         padding: 24px 0px;
       }
@@ -676,7 +709,7 @@
 
       .setting-profile-information-container .btn-1 {
         width: 100%;
-        max-width: 240px;
+        max-width: 150px;
         margin-top: 16px;
       }
     }
@@ -693,8 +726,6 @@
       color: white;
       border: none;
     }
-
-  
 
     .btn-1-primary:disabled {
       background: var(--Primary-200, #99d1ff);
@@ -725,7 +756,7 @@
     .textfield-1 textarea:not(:placeholder-shown) ~ label {
       top: -8px;
       left: 12px;
-      padding: 0px 4px 0px 4px;
+      padding: 0px 4px;
       background: var(--Bg-Medium, #f3f4f6);
       color: var(--Text-100, #374151);
       font-size: 10px;
