@@ -13,46 +13,45 @@
 
 <body>
 <style>
- 
-         .search-container {
-            position: relative;
-            width: 241px;
-        }
+  .search-container {
+    position: relative;
+    width: 241px;
+  }
 
-        .search-input {
-            width: 100%;
-            height: 40px;
-            border: 1px solid #E2E8F0;
-            border-radius: 16px;
-            padding: 8px 16px 8px 48px;
-            font-size: 16px;
-            font-weight: 400;
-            color: #64748b;
-            background-color: white;
-            outline: none;
-            box-sizing: border-box;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
+  .search-input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 8px 16px 8px 48px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #64748b;
+    background-color: white;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
 
-        .search-input::placeholder {
-            color: #94a3b8;
-        }
+  .search-input::placeholder {
+    color: #94a3b8;
+  }
 
-        .search-input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
+  .search-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
 
-        .search-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            opacity: 0.6;
-            pointer-events: none;
-        }
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
 </style>
   <a class="toggle-btn" id="btnToggleSidebar" aria-label="Toggle Sidebar" title="Toggle Sidebar">
     <img src="img/minimizer.svg" alt="Minimize" />
@@ -100,8 +99,6 @@
               <div id="toggleTableBtn" onclick="toggleTable()" style="background: none; border: none; cursor: pointer;">
                 <img id="toggleArrow" src="/img/arrow-down.svg" alt="Toggle" style="transition: transform 0.3s;">
               </div>
-
-
             </div>
             <style>
               .search-container {
@@ -194,7 +191,6 @@
                   <th>Location</th>
                   <th>Actions</th>
                   <th></th>
-               
                 </tr>
               </thead>
               <tbody id="bicepTableBody">
@@ -205,12 +201,17 @@
                   <td class="d-flex" style="gap:46.51px;">
                     <button class="btn accept-btn" onclick="acceptUser()">Accept</button>
                     <button class="btn reject-btn" onclick="rejectUser()">Reject</button>
-                    <a class="btn view-details-btn" href="block-user.html">View Details</a>
                   </td>
-                  <td>  <button class="btn-actions" title="More actions" >
-                    <img src="/img/threedot.svg" alt="More actions" />
-                  </button></td>
-                
+                  <td style="position: relative; text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                    <div class="actions-modal" style="padding:5px;width:125px;">
+                      <div class="modal-content" style="padding:4px;">
+                        <a class="dropdown-item w-100 text-start" href="block-user.html">View Details</a>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
                 <tr class="body-exsmall">
                   <td>User Name 1</td>
@@ -219,11 +220,17 @@
                   <td class="d-flex" style="gap:46.51px;">
                     <button class="btn accept-btn" onclick="acceptUser()">Accept</button>
                     <button class="btn reject-btn" onclick="rejectUser()">Reject</button>
-                    <a class="btn view-details-btn" href="block-user.html">View Details</a>
                   </td>
-                  <td>  <button class="btn-actions" title="More actions" >
-                    <img src="/img/threedot.svg" alt="More actions" />
-                  </button></td>
+                  <td style="position: relative; text-align: right; vertical-align: bottom;">
+                    <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
+                      <img src="/img/threedot.svg" alt="More actions" />
+                    </button>
+                    <div class="actions-modal" style="padding:5px;width:125px;">
+                      <div class="modal-content" style="padding:4px;">
+                        <a class="dropdown-item w-100 text-start" href="block-user.html">View Details</a>
+                      </div>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -252,7 +259,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -276,7 +282,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -300,7 +305,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -324,7 +328,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -345,10 +348,10 @@
                   <td>NSW</td>
                   <td>
                     <button class="bicep-btn">BICEP</button>
+ទ
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -372,7 +375,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -396,7 +398,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -420,7 +421,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -444,7 +444,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -468,7 +467,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -492,7 +490,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -516,7 +513,6 @@
                   </td>
                   <td>5</td>
                   <td>1</td>
-
                   <td style="position: relative; text-align: right; vertical-align: bottom;">
                     <button class="btn-actions" title="More actions" onclick="toggleModal(event)">
                       <img src="/img/threedot.svg" alt="More actions" />
@@ -536,7 +532,6 @@
           </div>
         </section>
       </div>
-
     </div>
   </div>
 
@@ -561,7 +556,7 @@
       document.getElementById('usertableContainer').style.display = "block";
     });
 
-    document.getElementById('searchInput').addEventListener('input', function (e) {
+    document.querySelector('.search-input').addEventListener('input', function (e) {
       const searchTerm = e.target.value.toLowerCase();
       const rows = document.querySelectorAll('#bicepTableBody tr');
 
@@ -576,29 +571,37 @@
     });
 
     function toggleModal(event) {
+      event.preventDefault();
       event.stopPropagation();
+      
       const button = event.currentTarget;
       const td = button.closest('td');
       const modal = td.querySelector('.actions-modal');
-
+      
+      // Toggle current modal
+      const isVisible = modal.style.display === 'block';
+      modal.style.display = isVisible ? 'none' : 'block';
+      
       // Hide all other modals
       document.querySelectorAll('.actions-modal').forEach(m => {
-        if (m !== modal) m.style.display = 'none';
+        if (m !== modal) {
+          m.style.display = 'none';
+        }
       });
-
-      // Toggle current modal
-      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
     }
 
     // Click outside to close any open modal
     document.addEventListener('click', function (e) {
-      document.querySelectorAll('.actions-modal').forEach(modal => {
-        if (!modal.contains(e.target) && !e.target.closest('.btn-actions')) {
+      const modals = document.querySelectorAll('.actions-modal');
+      const isClickInsideModal = Array.from(modals).some(modal => modal.contains(e.target));
+      const isClickOnButton = e.target.closest('.btn-actions');
+      
+      if (!isClickInsideModal && !isClickOnButton) {
+        modals.forEach(modal => {
           modal.style.display = 'none';
-        }
-      });
+        });
+      }
     });
   </script>
 </body>
-
 </html>
